@@ -1,42 +1,38 @@
 # Current state
 
-**As of:** 2026-07-14 23:03 PT
-**Lifecycle:** foundation / pre-release  
-**Release:** none
+**As of:** 2026-07-15
+**Lifecycle:** local v0.1 release candidate
+**Public release:** none
 
-## Present in the repository
+## What is true
 
-- Root ownership, security, contribution, package, CI, and release-governance foundations.
-- Durable prompt, plan, task, architecture, design, stack, decision, acceptance, provenance, roadmap, and YouStack context.
-- Compiled `@agenty/core`, `@agenty/cli`, `@agenty/harness`, and `@agenty/ui` packages.
-- A v1 agent-project JSON Schema, semantic cross-reference/safety validation, registry catalog, and starter contract.
-- A safe compiled CLI with `init`, `validate`, `doctor`, and `catalog`; `init` creates every declared local runtime, eval, and skill file and refuses conflicting writes.
-- A Next.js Studio reference app with the reusable shell, chat-first home, deterministic progress/tool stream, responsive artifact pane, and baseline project/files/knowledge/connectors/loops/settings routes.
-- Shared Stack Map registration and successful You.md integration. `youmd brain sync` returned snapshot HTTP `201` with one insertion, then accepted one content payload and six artifacts with six insertions; `secretValuesExposed=false` and readiness is `ready=true` / `status=degraded`.
-- Tested upstream You.md fixes: `b1ad5934` allows opaque artifact references through the PII scanner, and `36c8eab8` keeps heuristic task evidence read-only.
+- The active product is Agents SDK at agents-sdk.com.
+- Acceptance gates A1–A7 pass locally.
+- The positioning, eight-area information architecture, industrial-editorial design system, ownership model, plan, and acceptance contract are implemented and documented.
+- The versioned registry includes the three v0.1 components, approval pattern, focused examples, and complete support-agent template.
+- The compiled CLI implements `init`, `add`, `list`, `diff`, and `doctor` with copy-owned source, dependency planning, conflict refusal, modification detection, and rollback coverage.
+- The docs/catalog site contains 23 generated pages and passes desktop/mobile browser QA.
+- `AgentsSDKStack` is synchronized into the shared stack map while `~/.agent-shared` and You.md retain their canonical ownership boundaries.
+- Original source prompts and cross-project provenance remain preserved.
 
-## Not yet proven or released
+## Verified evidence
 
-- No package is publicly published and no global install path is supported.
-- `init` creates a manifest and all declared local runtime/eval/skill files; it does not yet scaffold a complete runnable application.
-- The complete provider-neutral runtime, durable approval/event system, replay, budgets, and redaction are not yet accepted.
-- The You.md degraded readiness label reflects safe metadata-only/non-content artifacts that are ineligible for content sync, not a synchronization failure.
-- The local generated portfolio review artifact has not been verified as refreshed; this is separate, non-blocking upstream follow-up work.
-- Cross-project learning is proposal-only; there is no autonomous upstream mutation or production deployment.
-- `agenty.so` release and second-machine clean-clone proof remain Stage 8 work.
+- `pnpm validate`: pass. Core 10 tests, UI 5, CLI 22, harness 1, site 14; 23 site pages generated.
+- API documentation guard, repository diff check, JSON parsing, and secret scans: pass.
+- Browser QA: desktop, mobile, overflow, console, approval interaction, navigation menu, and primary CTA: pass.
+- Clean-room compiled CLI: `init`, `add support-agent`, `diff`, and `doctor`: pass.
+- Clean-room installed support-agent: dependency install, 11 tests, typecheck, and production build: pass.
+- Package dry-runs: pass.
+- Shared `AgentsSDKStack` synchronization: pass.
+- You.md integration: the local Brain scan is ready under stable physical `project:agenty` with Agents SDK as the display identity; the strict 13-task ledger and T1 YouStack doctor pass. Remote Brain/task projection remains blocked because the current credential lacks `write:brain`; no upload was performed.
 
-## Immediate verification queue
+## A8 remains pending
 
-1. Keep frozen install, compiled package/app builds, 25 tests, typecheck, lint, and formatting green together.
-2. Build the bounded runtime/approval/event harness (Stage 3).
-3. Turn the contract skeleton into a fully installable/runnable application scaffold and full conformance report (Stages 4 and 6).
+- No `@agents-sdk/*` package is published.
+- agents-sdk.com is not serving this release.
+- Ownership and release access for the npm namespace, domain, and GitHub organization are not proven.
+- The tagged public-release, rollback, and second-environment evidence bundle does not exist yet.
 
-## Verification evidence
+Memory, auth/team, queues/background jobs, observability suites, deployment integrations, and broad MCP/provider catalogs remain roadmap subjects, not v0.1 claims.
 
-- `pnpm validate`: pass (compiled packages and Studio, 25 tests, typecheck, lint, Prettier).
-- Compiled CLI proof: `init`, `validate`, `doctor`, and `catalog` pass; repeat `init` exits `2` without overwriting.
-- Browser QA: desktop and 390×844 mobile pass; deterministic run completes; artifact pane opens/closes; zero console warnings/errors.
-- You.md brain sync: snapshot HTTP `201`, inserted `1`; content payloads `1`, artifacts `6`, inserted `6`; `secretValuesExposed=false`; readiness `ready=true`, `status=degraded` for safe ineligible metadata-only/non-content artifacts.
-- Local Studio remains available at `http://localhost:3017` for continued testing.
-
-The authoritative objective and gates remain `ACCEPTANCE.md`; this snapshot should be updated after every material milestone.
+The authoritative objective and gates are in `ACCEPTANCE.md`. Update this snapshot after every material milestone.

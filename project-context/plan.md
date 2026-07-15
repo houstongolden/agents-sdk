@@ -1,68 +1,71 @@
-# Agenty eight-stage plan
+# Agents SDK v0.1 plan
 
-**Status:** active  
-**North-star goal:** From a clean clone, a developer can choose a starter, define a typed agent with tools and approvals, run it locally, inspect streaming/tool/artifact state, execute safety and capability evals, and receive a machine-readable conformance report in 15 minutes without copying private project code or secrets.
+**Status:** A1–A7 complete locally; A8 public release pending
+**Positioning:** The open-source component system for building production agentic applications.
+**North-star goal:** Pass every gate in `ACCEPTANCE.md` from a clean directory without fake inventory or a hosted runtime dependency.
 
-The goal passes only when every check in `ACCEPTANCE.md` has linked evidence. A polished demo without reproducible commands does not pass.
+## Current release state
 
-## Current implementation snapshot
+The previous Agenty direction remains superseded. The Agents SDK product reset and local v0.1 implementation now pass A1–A7, including repository validation, docs/catalog browser QA, and a clean-room support-agent install/test/typecheck/build proof. Public release evidence remains A8 work.
 
-- Stage 1: complete. You.md brain publication is verified: snapshot HTTP `201` inserted one record; one content payload and six artifacts produced six content insertions with `secretValuesExposed=false`. Readiness is `ready=true` / `status=degraded`; the degraded label reflects safe ineligible metadata-only/non-content artifacts, not a sync failure. A local generated portfolio review artifact refresh remains unverified and non-blocking.
-- Stage 2: first v1 AgentProject contract complete and tested; additional run/event-specific contracts remain part of Stage 3.
-- Stage 3: not complete; the current harness validates manifests but does not yet execute provider-neutral bounded runs or durable approvals.
-- Stage 4: in progress; the compiled CLI creates a contract-complete skeleton and passes conflict/doctor proofs, but not yet a fully installable application.
-- Stage 5: first reference proof passes desktop/mobile browser QA; approval interaction and durable artifact lifecycle remain.
-- Stage 6: in progress; deterministic acceptance exists, full conformance and learning-proposal ingestion do not.
-- Stages 7–8: planned.
+## Phase 1 — Identity, scope, and information architecture
 
-## Stage 1 — Foundation and ownership
+**Status:** complete.
 
-Define vision, repository rules, monorepo tooling, source-of-truth boundaries, decision/provenance ledgers, tasks, and acceptance contract.
+Rename the product, packages, schemas, command language, project context, and public copy. Establish the eight-area navigation and clearly separate shipped, preview, and roadmap inventory.
 
-**Exit:** required context files parse; clean install and root validation commands are documented; no `.you-project` or secret is committed.
+**Exit:** A1 passes; repository search finds no active legacy brand; v0.1 inventory is exact.
 
-## Stage 2 — Versioned contracts
+## Phase 2 — Public docs foundation
 
-Implement schemas/types for agent, tool, skill, connector, approval, artifact, run event, eval, and conformance manifests. Include examples and compatibility policy.
+**Status:** complete. Browser QA passes across desktop, mobile, overflow, console, approval, menu, and CTA flows; 23 pages generate.
 
-**Exit:** valid fixtures pass, intentionally invalid fixtures fail with actionable paths, and JSON Schema output matches runtime validation.
+Replace the chat-dashboard-first site with the industrial-editorial homepage, documentation shell, catalog navigation, item-page anatomy, and restrained BAMF attribution defined in `DESIGN.md`.
 
-## Stage 3 — Runtime and safety harness
+**Exit:** A2 passes on desktop and mobile with accessibility and visual evidence.
 
-Build provider-neutral execution, typed tool dispatch, bounded loops, cancellation, durable run events, approval gates, redaction, budgets, and replay.
+## Phase 3 — Registry and CLI ownership loop
 
-**Exit:** deterministic fake-provider tests prove approve/deny/expire, retry/idempotency, cancellation, and replay behavior.
+**Status:** complete. Core and CLI contract suites pass; compiled clean-room `init/add/diff/doctor` proof passes.
 
-## Stage 4 — Starter and CLI
+Define the registry item contract. Implement `agents init`, `add`, `list`, `diff`, and `doctor` with deterministic file planning, dependency handling, conflict refusal, local-modification detection, and rollback on failed writes.
 
-Ship a single-command scaffold with adapter choices, local env template, sample agent/tool, tests, and upgrade-safe configuration.
+**Exit:** A3 and A4 pass from a temporary clean application.
 
-**Exit:** a temporary clean directory can scaffold, install, typecheck, test, and run the sample without manual source edits.
+## Phase 4 — Three excellent components
 
-## Stage 5 — Agentic application UI
+**Status:** complete. Component, site, and browser evidence pass for all three v0.1 items.
 
-Package the Houston shell: collapsible sidebar, chat-first session, parent-shell composer, typed message parts, connectors, progress/tool rows, approvals, and durable artifact pane.
+Ship `agent-chat`, `human-approval`, and `artifact-workspace` as installable, developer-owned source. Each gets a focused example, tests, item docs, responsive and accessibility proof, error/empty/loading states, and integration boundaries.
 
-**Exit:** component tests, responsive browser flows, accessibility checks, and visual evidence pass; no nested composer focus border is introduced.
+**Exit:** A5 passes. A component is not accepted merely because a similarly named internal primitive exists.
 
-## Stage 6 — Evals, conformance, and learning loop
+## Phase 5 — Pattern and complete template
 
-Add capability/safety eval fixtures, conformance CLI/report, provenance checks, regression ledgers, and proposal-only cross-project learning ingestion.
+**Status:** complete. The clean-room template installs dependencies, runs 11 tests, typechecks, and builds.
 
-**Exit:** conformance catches a broken example; learning proposals contain source, owner, evidence, privacy class, and approval without auto-editing upstream repos.
+Ship the `approval-gates` architecture pattern with named failure paths, then build one support-agent template that composes all three components and demonstrates a consequential action requiring allow/deny approval.
 
-## Stage 7 — Docs, examples, and service system
+**Exit:** A6 passes, including clean install and runnable behavior.
 
-Publish the architecture, API/MCP contracts, recipes, reference apps, delivery discovery/audit/build/acceptance templates, and public/private boundary.
+## Phase 6 — Documentation and contributor proof
 
-**Exit:** a new contributor completes the quickstart; one BAMF-shaped reference and one neutral reference pass; service deliverables map to framework artifacts.
+**Status:** complete. API docs guard, JSON, diff, secret, package dry-run, and fresh-developer proofs pass.
 
-## Stage 8 — Release and proof
+Complete quickstart, registry authoring, contribution, compatibility, security, accessibility, customization, and upgrade/diff guidance. Run the flow with a fresh contributor perspective.
 
-Release the first version, deploy `agenty.so`, run the clean-clone proof on a second machine/worktree, publish limitations and changelog, and create the ongoing improvement cadence.
+**Exit:** A7 passes with no generic filler or empty pages presented as product.
 
-**Exit:** all acceptance gates pass from the tagged release, install artifacts are reproducible, rollback is documented, and any `agenty.io` purchase remains a human business decision.
+## Phase 7 — Release proof
+
+**Status:** pending.
+
+Publish the scoped packages and agents-sdk.com only after clean CI, second-worktree/machine proof, package provenance, limitations, changelog, rollback, and human launch approval.
+
+**Exit:** A8 passes.
+
+Remaining work is intentionally external and release-specific: publish scoped packages, serve the accepted build at agents-sdk.com, prove npm/domain/GitHub organization ownership and access, create tagged rollback evidence, and repeat the release proof in the required second environment.
 
 ## Work loop
 
-For every stage: inventory evidence → specify the contract → implement the smallest complete slice → test failure paths → review ownership/security → record proof → commit one logical change. Cross-project discoveries enter as proposals first.
+For each item: verify the repeated user problem → inventory proven source → record provenance → specify the registry contract → implement the smallest complete slice → test happy and shadow paths → document tradeoffs → run visual/accessibility/security review → record evidence → commit one logical change.

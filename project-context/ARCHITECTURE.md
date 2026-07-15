@@ -2,39 +2,55 @@
 
 ## Role
 
-Agenty is the **productization and conformance layer** for agent engineering: contracts, packages, starters, UI, harnesses, evals, docs, and service delivery assets. It promotes proven patterns; it does not absorb every file from every agent project.
+Agents SDK is a docs-and-registry system for developer-owned agent application source. It catalogs installable items, resolves their files and dependencies, copies them into an application, and verifies that each item remains runnable and documented.
 
-## Exact ownership boundary
+It does not own a universal agent runtime. Components and patterns integrate with existing frameworks and providers through explicit compatibility contracts.
 
-| Surface                                                        | Canonical owner                  | Agenty relationship                                                                                                               |
-| -------------------------------------------------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Global agent behavior, shared skills, sync scripts             | `~/.agent-shared`                | Reference/install; contribute upstream through its governance. Never fork silently.                                               |
-| Identity, private memory, project graph, cross-machine catalog | You.md / Houston You.md repo     | Publish a safe `youstack.json` and project context for indexing. Do not copy private brain data or hand-edit generated snapshots. |
-| Product domain data, auth, RLS, deployment, business rules     | Each product repo                | Provide adapters/contracts; the product remains authoritative.                                                                    |
-| Historical cross-project agent standards                       | Codex Mgmt                       | Evidence/incubator. Promote selected material here with provenance; do not destructively move history.                            |
-| Agent app shell routing standards                              | shared `agentic-app-shell` skill | Consume today; Agenty can own tested product packages while the shared skill remains the routing/install surface.                 |
-| Streaming/tool/artifact reference patterns                     | shared `aisdkagents` references  | Build against installed references without republishing paid/private assets or inventing APIs.                                    |
-| Reusable public framework and delivery system                  | **Agenty**                       | Canonical owner.                                                                                                                  |
+## Ownership boundary
 
-## Layers
+| Surface                                                                 | Canonical owner             | Agents SDK relationship                                                                      |
+| ----------------------------------------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------------- |
+| Public registry items, docs, CLI, templates, examples, release evidence | **Agents SDK**              | Canonical owner                                                                              |
+| Global agent behavior, shared skills, sync scripts                      | `~/.agent-shared`           | Reference or install; contribute upstream through its governance                             |
+| Identity, private memory, project graph, cross-machine catalog          | You.md                      | Publish safe project context; never copy private brain data or hand-edit generated snapshots |
+| Product data, auth, tenancy/RLS, deployment, business rules             | Consuming product repo      | Document integration points; consuming product remains authoritative                         |
+| Historical cross-project standards                                      | Codex Mgmt and source repos | Evidence and provenance, never destructive migration                                         |
+| Shared agentic shell and AI SDK Agents references                       | Canonical shared skills     | Source of proven behavior and design knowledge; do not republish paid/private assets         |
+| Custom implementation and enterprise support                            | BAMF                        | Secondary service path, not public product architecture                                      |
+
+## Repository layers
 
 ```text
-apps/docs + examples                      public learning and proof
-packages/ui + starter                     product shell and scaffold
-packages/runtime + adapters               execution, tools, approvals, events
-packages/contracts                        versioned portable schemas
-tooling/evals + conformance               verification and release gates
-project-context                           local intent, provenance, decisions, proof
+agents-sdk.com docs and catalog
+        ↓ discovers and explains
+versioned registry metadata
+        ↓ resolves
+@agents-sdk/cli install, diff, and doctor
+        ↓ copies
+developer-owned source + dependencies + tests
+        ↓ demonstrated by
+runnable examples and complete templates
+        ↓ accepted by
+CI, visual/accessibility proof, security checks, and provenance
 ```
 
-Dependencies point downward. Contracts have no UI/provider dependency. Runtime depends on contracts. UI consumes typed events/contracts but does not own execution policy. Product adapters cannot weaken core safety semantics without declaring a conformance deviation.
+## Registry item contract
 
-## Core flow
+Every item declares:
 
-`manifest → validate → resolve adapters/policy → execute bounded run → request approval when required → emit append-only events/artifacts → evaluate → conformance report`
+- stable name, category, version, maturity, license, and provenance;
+- owned files and allowed write targets;
+- package and item dependencies;
+- supported frameworks/providers and tested versions;
+- installation, conflict, diff, update, and removal behavior;
+- runnable example and deterministic tests;
+- documentation sections required by `CONTRIBUTING.md`;
+- security, permission, privacy, and accessibility considerations.
 
-Every external action declares scopes, risk, idempotency, timeout, retry behavior, approval policy, and evidence. Secrets are references resolved at runtime. Retrieved content is untrusted.
+The CLI must preflight all writes, never silently overwrite local changes, and make the copy-own boundary obvious.
 
-## Learning flow
+## Promotion flow
 
-Cross-project observation → provenance record → privacy/ownership classification → generalized proposal → fixture/eval → review → versioned Agenty primitive. Automatic dream cycles may discover and propose; they do not copy private code, change upstream canonical skills, or deploy consequential changes.
+Cross-project observation → provenance/privacy classification → generalized proposal → focused implementation → runnable example → tests and docs → review → versioned registry item.
+
+Automatic learning may discover and propose. It does not copy private code, publish assets, mutate canonical shared skills, or deploy consequential changes.

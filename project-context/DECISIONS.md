@@ -1,21 +1,33 @@
 # Decision ledger
 
-## D-001 — Agenty owns productized primitives
+## D-006 — Agents SDK supersedes Agenty
 
-Agenty owns reusable code/contracts/tests; `~/.agent-shared` owns global behavior and skills; You.md owns identity/project catalog; product repos own domain/auth/data. **Accepted 2026-07-14.**
+The product is **Agents SDK**, hosted at **agents-sdk.com**. The “Agenty / agency for agents” direction is historical provenance, not active positioning. **Accepted 2026-07-14.**
 
-## D-002 — Contracts before broad adapters
+## D-007 — Component system, not universal framework
 
-Stabilize manifests and conformance semantics before multiplying provider integrations. **Accepted 2026-07-14.**
+Agents SDK is the open-source component system for complete agentic applications. It distributes developer-owned source, patterns, templates, and explanations rather than claiming to own every runtime layer. **Accepted 2026-07-14.**
 
-## D-003 — Proposal-first self-improvement
+## D-008 — Docs and registry are the primary product
 
-Dream-cycle and cross-project learning can create attributed proposals. Promotion requires privacy classification, tests, and review. **Accepted 2026-07-14.**
+The public experience is organized around Components, Agents & Skills, Tools & MCP, Patterns, Templates, Examples, CLI, and Docs. Category presence does not imply shipped inventory. **Accepted 2026-07-14.**
 
-## D-004 — Framework plus service
+## D-009 — Scoped npm namespace
 
-Open primitives can create trust and distribution; proprietary client context, delivery operations, and custom implementations remain separable. Exact boundary requires Houston approval. **Accepted as direction; boundary pending.**
+Use `@agents-sdk/*`; prefer `agents` as the executable. The occupied unscoped `agents-sdk` package does not change the product brand. **Accepted 2026-07-14.**
 
-## D-005 — Domain purchase is gated by proof
+## D-010 — Honest v0.1
 
-Use `agenty.so` initially. Treat `agenty.io` as a business decision after useful release evidence, not a prerequisite. **Accepted 2026-07-14.**
+v0.1 contains three excellent components (`agent-chat`, `human-approval`, `artifact-workspace`), one `approval-gates` pattern, one support-agent template, focused examples, CLI installation workflows, and complete docs. Everything else remains roadmap material. **Accepted 2026-07-14.**
+
+## D-011 — BAMF is secondary
+
+Use “Built by BAMF” and one restrained Enterprise/custom-development path. Do not make BAMF services the homepage narrative or information architecture. **Accepted 2026-07-14.**
+
+## D-012 — Proposal-first cross-project learning
+
+Cross-project learning can create attributed proposals. Promotion requires privacy classification, generalization, tests, docs, and review. **Carried forward.**
+
+## Superseded decisions
+
+D-001 through D-005 described Agenty as a productization/conformance layer plus agency service and gated an `agenty.io` purchase. Those decisions are superseded by D-006 through D-011. Their source prompt remains in `prompts.md`.
