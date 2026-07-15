@@ -74,6 +74,12 @@ Publish the scoped packages and agents-sdk.com only after clean CI, second-workt
 
 Remaining work is intentionally external and release-specific: publish scoped packages, serve the accepted build at agents-sdk.com, prove npm/domain/GitHub organization ownership and access, create tagged rollback evidence, and repeat the release proof in the required second environment.
 
+## Transition stabilization
+
+**Status:** collision cleanup complete; branch custody, durability, and You.md authority pending.
+
+The old `agenty` path resolves to the canonical repository and requires no file copy. The recovered task history is indexed in the handoff audit. The 29 visible historical collision snapshots and six ignored generated collision artifacts were proven non-unique and removed, restoring a canonical raw working tree. Remaining transition work is to review the separate `codex/adil-contracts` worktree, establish remote/off-machine durability, and restore supported You.md write authority without bypassing its guards.
+
 ## Work loop
 
 For each item: verify the repeated user problem → inventory proven source → record provenance → specify the registry contract → implement the smallest complete slice → test happy and shadow paths → document tradeoffs → run visual/accessibility/security review → record evidence → commit one logical change.

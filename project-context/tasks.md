@@ -3,7 +3,7 @@
 <!-- generated from tasks.json (you-md/tasks/v1). Do not edit;
      regenerate with `you tasks`; manual changes are rejected. -->
 
-## Active (4)
+## Active (7)
 
 - [ ] Secure or approve the @agents-sdk npm organization and release access <!-- id:t-hy-001 -->
       open · urgent · #human-gate #phase-7 #urgent
@@ -24,8 +24,21 @@
       dependencies: t-sdk-009 | t-hy-001 | t-hy-002
       blockers: @agents-sdk packages are not published | agents-sdk.com is not serving the release | npm namespace/domain/GitHub organization ownership is not proven
       Publish the scoped packages and accepted site only after external ownership and public release gates pass.
+- [ ] Review and decide ADIL contract branch custody <!-- id:t-sdk-012 -->
+      open · high · #sdk #handoff #contracts #high
+      success: Every unique ADIL contract is dispositioned with evidence and the linked worktree can be retained or removed deliberately.
+      dependencies: t-sdk-011
+      Review codex/adil-contracts against current Agents SDK contracts and explicitly adapt, rebase, merge, archive, or reject its changes.
+- [ ] Establish remote and off-machine repository durability <!-- id:t-sdk-013 -->
+      open · high · Houston · #human-gate #handoff #durability #high
+      success: Main and any retained branch have verified off-machine custody without exposing secrets or private material.
+      Configure an approved remote or backup route and prove the committed repository and unmerged branch are recoverable off-machine.
+- [ ] Restore supported You.md write authority <!-- id:t-sdk-014 -->
+      open · medium · #sdk #handoff #you-md #medium
+      success: The canonical checkout has a valid descriptor and authorized task/context writes succeed through supported You.md tooling.
+      Re-register the lowercase Agents SDK checkout through the supported You.md project flow and verify local/remote task projection without bypassing authority guards.
 
-## Done (9)
+## Done (10)
 
 - [x] Complete identity and namespace migration <!-- id:t-sdk-001 -->
       success: Acceptance gate A1 passes without active legacy branding or unsafe ownership drift.
@@ -62,6 +75,9 @@
       success: Acceptance gate A7 passes with site, API docs, package, and clean-room evidence.
       dependencies: t-sdk-008
       evidence: site 14 tests | 23 generated pages | API docs guard | package dry-runs | clean-room proof
+- [x] Reconcile historical collision files <!-- id:t-sdk-011 -->
+      success: No collision artifact remains, unique evidence is preserved in Git or canonical context, and pnpm validate passes without quarantine.
+      evidence: project-context/audits/2026-07-15-full-project-handoff/10-CONTEXT-RECOVERY-AND-COLLISION-CLOSURE.md | git blob/history custody audit | pnpm validate
 
 <!-- notes:start -->
 

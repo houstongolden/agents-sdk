@@ -61,18 +61,19 @@ The public transcript artifact records the conversation available to the task. E
 
 Read these files as one numbered handoff:
 
-| File                                                                                     | Purpose                                                                                  | Status at index creation    |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | --------------------------- |
-| [00-README.md](00-README.md)                                                             | Authoritative index, scope, coverage, source hierarchy, limits, and restore instructions | Present                     |
-| [01-EXECUTIVE-SUMMARY.md](01-EXECUTIVE-SUMMARY.md)                                       | Product/work synthesis, verified state, blockers, and immediate actions                  | Present                     |
-| [02-CHAT-TRANSCRIPT.md](02-CHAT-TRANSCRIPT.md)                                           | Public user/assistant transcript and durable prompt excerpts                             | Present                     |
-| [03-WORKING-LOG.md](03-WORKING-LOG.md)                                                   | Chronological implementation, verification, rename, and audit log                        | Expected companion artifact |
-| [04-DOCUMENTATION-INVENTORY.md](04-DOCUMENTATION-INVENTORY.md)                           | Complete canonical/generated/legacy documentation and context directory                  | Present                     |
-| [05-CODEBASE-INVENTORY.md](05-CODEBASE-INVENTORY.md)                                     | Architecture, packages, routes, registry, schemas, tests, Git, and code inventory        | Present                     |
-| [06-DECISIONS-STATUS-AND-SOURCE-OF-TRUTH.md](06-DECISIONS-STATUS-AND-SOURCE-OF-TRUTH.md) | Active/superseded decisions, current status, owners, and truth hierarchy                 | Present                     |
-| [07-RISKS-GAPS-AND-NEXT-WORK.md](07-RISKS-GAPS-AND-NEXT-WORK.md)                         | Prioritized risks, unresolved gaps, blockers, and execution plan                         | Present                     |
-| [08-PATH-MIGRATION-AND-CODE-CUSTODY.md](08-PATH-MIGRATION-AND-CODE-CUSTODY.md)           | Rename mechanics, compatibility link, worktree continuity, and custody rules             | Present                     |
-| [09-REPOSITORY-FILE-MANIFEST.md](09-REPOSITORY-FILE-MANIFEST.md)                         | Exact repository file manifest and classification                                        | Expected companion artifact |
+| File                                                                                         | Purpose                                                                                  | Status at index creation    |
+| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | --------------------------- |
+| [00-README.md](00-README.md)                                                                 | Authoritative index, scope, coverage, source hierarchy, limits, and restore instructions | Present                     |
+| [01-EXECUTIVE-SUMMARY.md](01-EXECUTIVE-SUMMARY.md)                                           | Product/work synthesis, verified state, blockers, and immediate actions                  | Present                     |
+| [02-CHAT-TRANSCRIPT.md](02-CHAT-TRANSCRIPT.md)                                               | Public user/assistant transcript and durable prompt excerpts                             | Present                     |
+| [03-WORKING-LOG.md](03-WORKING-LOG.md)                                                       | Chronological implementation, verification, rename, and audit log                        | Expected companion artifact |
+| [04-DOCUMENTATION-INVENTORY.md](04-DOCUMENTATION-INVENTORY.md)                               | Complete canonical/generated/legacy documentation and context directory                  | Present                     |
+| [05-CODEBASE-INVENTORY.md](05-CODEBASE-INVENTORY.md)                                         | Architecture, packages, routes, registry, schemas, tests, Git, and code inventory        | Present                     |
+| [06-DECISIONS-STATUS-AND-SOURCE-OF-TRUTH.md](06-DECISIONS-STATUS-AND-SOURCE-OF-TRUTH.md)     | Active/superseded decisions, current status, owners, and truth hierarchy                 | Present                     |
+| [07-RISKS-GAPS-AND-NEXT-WORK.md](07-RISKS-GAPS-AND-NEXT-WORK.md)                             | Prioritized risks, unresolved gaps, blockers, and execution plan                         | Present                     |
+| [08-PATH-MIGRATION-AND-CODE-CUSTODY.md](08-PATH-MIGRATION-AND-CODE-CUSTODY.md)               | Rename mechanics, compatibility link, worktree continuity, and custody rules             | Present                     |
+| [09-REPOSITORY-FILE-MANIFEST.md](09-REPOSITORY-FILE-MANIFEST.md)                             | Exact repository file manifest and classification                                        | Expected companion artifact |
+| [10-CONTEXT-RECOVERY-AND-COLLISION-CLOSURE.md](10-CONTEXT-RECOVERY-AND-COLLISION-CLOSURE.md) | Recovered task audit, missing-ledger closure, and collision-file custody                 | Present                     |
 
 “Expected” means another audit lane may still be creating the file. A missing companion is an incomplete handoff condition, not evidence that the underlying project work is absent.
 
@@ -176,4 +177,4 @@ The safe next local action is to reconcile the 29 untracked `* 2.*` collision fi
 
 ## Handoff completion criteria
 
-This audit directory is complete when files `00` through `09` exist, internal links resolve, claims agree with the canonical sources at the snapshot commit, the repository manifest covers tracked and relevant untracked files, no secret values are present, and the duplicate/path migration risks are explicitly actionable.
+The original handoff is complete when files `00` through `09` exist. Later numbered addenda, beginning with `10`, preserve post-handoff recovery and closure evidence. Internal links must resolve, claims must agree with canonical sources at the stated commit, relevant files must remain inventoried, no secret values may be present, and migration risks must remain explicitly actionable.
