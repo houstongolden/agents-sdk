@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "agenty/braindump/v1",
+  "capturedAt": "2026-07-14T00:00:00-07:00",
+  "source": "project-context/prompts.md#2026-07-14--found-agenty-as-the-agency-for-agents",
+  "thesis": "Agenty is both the agency for agents and the reusable framework used to build them.",
+  "outcomes": [
+    "Create a durable home for cross-project agent engineering standards.",
+    "Ship a live-coding/vibe-coding starter for many kinds of agent applications.",
+    "Continuously improve from evidence gathered across active agent products.",
+    "Support an open-source framework and a high-ticket agent-building service."
+  ],
+  "requestedAssets": [
+    "ui",
+    "templates",
+    "skills",
+    "best-practices",
+    "schemas",
+    "tools",
+    "frameworks",
+    "harnesses",
+    "stacks",
+    "project-context",
+    "You.md integration"
+  ],
+  "constraints": [
+    "Use existing best practices and provenance.",
+    "Produce a real verifiable goal and iterate against it.",
+    "Keep shared skills, You.md data, and product-specific logic with their canonical owners.",
+    "Do not treat agenty.io purchase as an implementation dependency."
+  ],
+  "opportunities": [
+    {
+      "id": "framework",
+      "value": "Open, composable agent application foundation",
+      "customer": "agent builders and product teams"
+    },
+    {
+      "id": "service",
+      "value": "Premium discovery-to-production agent delivery",
+      "customer": "BAMF and external clients"
+    },
+    {
+      "id": "learning-network",
+      "value": "Evidence-backed cross-project improvement loop",
+      "customer": "Houston's project portfolio"
+    }
+  ],
+  "humanDecisions": [
+    "open-source versus proprietary boundary",
+    "service offer and pricing",
+    "production launch",
+    "agenty.io purchase"
+  ],
+  "risks": [
+    "becoming an uncurated dumping ground",
+    "duplicating canonical shared skills",
+    "copying private or paid material",
+    "framework abstraction before proof",
+    "unverified self-modification"
+  ],
+  "successRef": "project-context/ACCEPTANCE.md"
+}

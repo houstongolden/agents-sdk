@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "agenty/tasks/v1",
+  "updatedAt": "2026-07-14T22:50:00-07:00",
+  "goalRef": "project-context/ACCEPTANCE.md",
+  "tasks": [
+    {
+      "id": "AG-001",
+      "stage": 1,
+      "title": "Create durable foundation and ownership contract",
+      "ownerType": "agent",
+      "status": "done",
+      "priority": "P0",
+      "evidence": ["README.md", "project-context/ARCHITECTURE.md", "pnpm validate"]
+    },
+    {
+      "id": "AG-002",
+      "stage": 1,
+      "title": "Verify You.md catalog registration without committing .you-project",
+      "ownerType": "agent",
+      "status": "blocked",
+      "priority": "P0",
+      "dependsOn": ["AG-001"],
+      "evidence": [
+        "youstack.json",
+        "~/.agent-shared/STACK-MAP.md@7f9e740",
+        "You.md b1ad5934",
+        "PROJECT_BRAIN_SYNC_SNAPSHOT_FAILED",
+        "PROJECT_BRAIN_INTERNAL"
+      ]
+    },
+    {
+      "id": "AG-003",
+      "stage": 2,
+      "title": "Implement and test core manifests",
+      "ownerType": "agent",
+      "status": "in_progress",
+      "priority": "P0",
+      "dependsOn": ["AG-001"],
+      "evidence": ["schemas/agent-project.schema.json", "packages/core/tests/manifest.test.ts"]
+    },
+    {
+      "id": "AG-004",
+      "stage": 3,
+      "title": "Implement deterministic runtime and approval harness",
+      "ownerType": "agent",
+      "status": "in_progress",
+      "priority": "P0",
+      "dependsOn": ["AG-003"]
+    },
+    {
+      "id": "AG-005",
+      "stage": 4,
+      "title": "Ship clean-directory scaffold proof",
+      "ownerType": "agent",
+      "status": "in_progress",
+      "priority": "P0",
+      "dependsOn": ["AG-004"],
+      "evidence": ["packages/cli/tests/cli.test.ts", "manual compiled CLI proof"]
+    },
+    {
+      "id": "AG-006",
+      "stage": 5,
+      "title": "Ship reusable shell and agent UI proof",
+      "ownerType": "agent",
+      "status": "in_progress",
+      "priority": "P1",
+      "dependsOn": ["AG-003"],
+      "evidence": [
+        "packages/ui/tests/artifact-spec.test.ts",
+        "apps/studio/lib/demo-stream.test.ts",
+        "desktop and mobile in-app browser QA"
+      ]
+    },
+    {
+      "id": "AG-007",
+      "stage": 6,
+      "title": "Ship eval and conformance runner",
+      "ownerType": "agent",
+      "status": "in_progress",
+      "priority": "P0",
+      "dependsOn": ["AG-004", "AG-005", "AG-006"]
+    },
+    {
+      "id": "AG-008",
+      "stage": 7,
+      "title": "Publish docs, examples, and service delivery kit",
+      "ownerType": "agent",
+      "status": "pending",
+      "priority": "P1",
+      "dependsOn": ["AG-007"]
+    },
+    {
+      "id": "AG-009",
+      "stage": 8,
+      "title": "Run tagged cross-machine release proof",
+      "ownerType": "agent",
+      "status": "pending",
+      "priority": "P0",
+      "dependsOn": ["AG-008"]
+    },
+    {
+      "id": "HY-001",
+      "stage": 7,
+      "title": "Approve open-source/private boundary and service offer",
+      "ownerType": "human",
+      "status": "pending",
+      "priority": "P0"
+    },
+    {
+      "id": "HY-002",
+      "stage": 8,
+      "title": "Approve public release and production hosting",
+      "ownerType": "human",
+      "status": "pending",
+      "priority": "P0",
+      "dependsOn": ["AG-009"]
+    },
+    {
+      "id": "HY-003",
+      "stage": 8,
+      "title": "Decide whether evidence supports purchasing agenty.io",
+      "ownerType": "human",
+      "status": "pending",
+      "priority": "P2",
+      "dependsOn": ["HY-002"]
+    }
+  ]
+}

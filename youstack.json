@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "youstack/v1",
+  "kind": "youstack",
+  "slug": "agenty",
+  "name": "Agenty Stack",
+  "domain": "agent-engineering",
+  "aliases": ["agentystack", "agency-for-agents", "agent-app-starter"],
+  "tags": ["agents", "agent-apps", "framework", "evals", "ui", "mcp"],
+  "version": "0.1.0",
+  "description": "Build, verify, and deliver production agent applications from versioned contracts, reusable UI, runtime adapters, starters, and conformance tests.",
+  "visibility": "private",
+  "owner": { "name": "Houston Golden", "profile": "https://you.md/houstongolden" },
+  "compatibility": {
+    "hosts": ["claude-code", "codex", "cursor"],
+    "requiresYoumdApi": false,
+    "requiresYoumdMcp": false
+  },
+  "brainScopes": [
+    {
+      "scope": "identity.public.read",
+      "required": false,
+      "reason": "Adapt public author and service context without embedding private identity data."
+    },
+    {
+      "scope": "preferences.agent.read",
+      "required": false,
+      "reason": "Apply owner-approved collaboration preferences at runtime."
+    }
+  ],
+  "files": [
+    { "path": "AGENTS.md", "type": "instructions", "required": true },
+    { "path": "project-context/plan.md", "type": "workflow", "required": true },
+    { "path": "project-context/ACCEPTANCE.md", "type": "test", "required": true },
+    { "path": "README.md", "type": "docs", "required": true }
+  ],
+  "adapters": {
+    "claude-code": { "files": ["CLAUDE.md"], "bootstrap": "CLAUDE.md" },
+    "codex": { "files": ["AGENTS.md"], "bootstrap": "AGENTS.md" },
+    "cursor": { "files": ["AGENTS.md"], "bootstrap": "AGENTS.md" }
+  },
+  "capabilities": [
+    {
+      "id": "design-agent-app",
+      "intent": "Turn a product outcome into versioned agent, tool, approval, artifact, and eval contracts.",
+      "localOnly": true,
+      "mutationPolicy": "read_only"
+    },
+    {
+      "id": "scaffold-agent-app",
+      "intent": "Create a tested agent application from an Agenty starter after reviewing adapter choices.",
+      "localOnly": true,
+      "mutationPolicy": "fs_write"
+    },
+    {
+      "id": "check-conformance",
+      "intent": "Run capability, safety, ownership, documentation, and release checks and emit evidence.",
+      "localOnly": true,
+      "mutationPolicy": "read_only"
+    }
+  ],
+  "accessPolicy": {
+    "defaultMode": "local_static",
+    "protectedByDefault": true,
+    "requiresApprovalFor": [
+      "private_context.read",
+      "connected_tool.write",
+      "remote_repo.write",
+      "publish_public"
+    ],
+    "secretPolicy": "env_only"
+  },
+  "sharing": {
+    "allowedModes": ["private", "scoped-link", "public-open"],
+    "defaultMode": "private"
+  },
+  "repoSync": { "enabled": false, "provider": "github", "path": "." },
+  "improvement": {
+    "mode": "propose",
+    "cadence": "after meaningful agent-app sessions and scheduled portfolio audits",
+    "signals": [
+      "usage",
+      "failures",
+      "user corrections",
+      "eval regressions",
+      "provenance proposals"
+    ],
+    "evals": ["pnpm validate", "clean-clone acceptance proof"],
+    "appliesTo": ["contracts", "runtime", "ui", "starters", "docs", "evals"],
+    "approvalRequiredFor": [
+      "private_context.read",
+      "connected_tool.write",
+      "remote_repo.write",
+      "publish_public"
+    ]
+  },
+  "update": {
+    "channel": "manual",
+    "check": "pnpm validate",
+    "source": "user-owned Agenty repository",
+    "autoApply": false
+  }
+}
