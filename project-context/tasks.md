@@ -11,6 +11,7 @@ The machine-readable ledger is `tasks.json`. Agents own implementation, verifica
 - [ ] **AG-004 · Agent · P0:** Complete the provider-neutral runtime, approvals, event replay, budgets, and redaction.
 - [ ] **AG-005 · Agent · P0:** Promote the contract-complete CLI skeleton into a clean-install runnable application scaffold.
 - [ ] **AG-007 · Agent · P0:** Extend the acceptance harness into full human/JSON conformance reporting.
+- [x] **AG-010 · Agent · P0:** ADIL v0.1 shared contracts, generated JSON Schemas, typed tools, semantic validation, fixtures, and adapter conformance utility pass focused validation.
 
 ## Non-blocking upstream follow-up
 

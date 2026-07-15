@@ -9,6 +9,7 @@ The goal passes only when every check in `ACCEPTANCE.md` has linked evidence. A 
 
 - Stage 1: complete. You.md brain publication is verified: snapshot HTTP `201` inserted one record; one content payload and six artifacts produced six content insertions with `secretValuesExposed=false`. Readiness is `ready=true` / `status=degraded`; the degraded label reflects safe ineligible metadata-only/non-content artifacts, not a sync failure. A local generated portfolio review artifact refresh remains unverified and non-blocking.
 - Stage 2: first v1 AgentProject contract complete and tested; additional run/event-specific contracts remain part of Stage 3.
+- ADIL v0.1: the provider-neutral intelligence package now owns canonical URNs and locators, registry and record contracts, generated JSON Schemas, twelve typed `intelligence.*` tool contracts, semantic manifest validation, and an adapter conformance utility. Product auth/RLS, source mappings, migrations, and deployment remain app-owned.
 - Stage 3: not complete; the current harness validates manifests but does not yet execute provider-neutral bounded runs or durable approvals.
 - Stage 4: in progress; the compiled CLI creates a contract-complete skeleton and passes conflict/doctor proofs, but not yet a fully installable application.
 - Stage 5: first reference proof passes desktop/mobile browser QA; approval interaction and durable artifact lifecycle remain.
@@ -26,6 +27,10 @@ Define vision, repository rules, monorepo tooling, source-of-truth boundaries, d
 Implement schemas/types for agent, tool, skill, connector, approval, artifact, run event, eval, and conformance manifests. Include examples and compatibility policy.
 
 **Exit:** valid fixtures pass, intentionally invalid fixtures fail with actionable paths, and JSON Schema output matches runtime validation.
+
+ADIL extension evidence is tracked as AG-010. Its JSON Schemas are generated from
+the Zod source during build, and its public README records the authorization and
+semver boundaries needed by product adapters.
 
 ## Stage 3 — Runtime and safety harness
 

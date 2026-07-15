@@ -1,6 +1,6 @@
 {
   "schemaVersion": "agenty/tasks/v1",
-  "updatedAt": "2026-07-14T23:03:16-07:00",
+  "updatedAt": "2026-07-14T23:21:44-07:00",
   "goalRef": "project-context/ACCEPTANCE.md",
   "tasks": [
     {
@@ -99,6 +99,24 @@
       "status": "pending",
       "priority": "P0",
       "dependsOn": ["AG-008"]
+    },
+    {
+      "id": "AG-010",
+      "stage": 2,
+      "title": "Implement ADIL v0.1 shared intelligence contracts and adapter conformance",
+      "ownerType": "agent",
+      "status": "done",
+      "priority": "P0",
+      "dependsOn": ["AG-001"],
+      "evidence": [
+        "packages/intelligence-contracts/README.md",
+        "packages/intelligence-contracts/tests/contracts.test.ts",
+        "packages/intelligence-contracts/tests/conformance.test.ts",
+        "schemas/intelligence/",
+        "pnpm --filter @houston/agentic-intelligence-contracts build",
+        "pnpm --filter @houston/agentic-intelligence-contracts typecheck",
+        "pnpm --filter @houston/agentic-intelligence-contracts test"
+      ]
     },
     {
       "id": "HY-001",

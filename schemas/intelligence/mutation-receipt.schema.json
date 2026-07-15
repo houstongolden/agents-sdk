@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "receiptId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" },
+    "state": {
+      "type": "string",
+      "enum": ["accepted", "pending_approval", "queued", "completed", "rejected"]
+    },
+    "approvalId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" },
+    "auditId": { "type": "string", "minLength": 1 },
+    "idempotencyKey": { "type": "string", "minLength": 1 }
+  },
+  "required": ["receiptId", "state", "auditId", "idempotencyKey"],
+  "additionalProperties": false
+}

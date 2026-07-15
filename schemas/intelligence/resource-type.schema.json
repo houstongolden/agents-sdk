@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "key": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+    "urnResourceType": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+    "app": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,62}$" },
+    "source": {
+      "type": "object",
+      "properties": {
+        "adapter": {
+          "type": "string",
+          "enum": ["postgres", "convex", "filesystem", "object_storage", "external_api"]
+        },
+        "schema": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+        "table": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+        "collection": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+        "bucket": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+        "primaryKey": { "type": "string", "minLength": 1 },
+        "changeMode": {
+          "type": "string",
+          "enum": ["transactional", "webhook", "reconciliation", "manual"]
+        }
+      },
+      "required": ["adapter", "primaryKey", "changeMode"],
+      "additionalProperties": false
+    },
+    "tenant": {
+      "type": "object",
+      "properties": {
+        "resolver": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+        "field": { "type": "string", "pattern": "^(?:\\/(?:[^~/]|~[01])*)*$" }
+      },
+      "required": ["resolver"],
+      "additionalProperties": false
+    },
+    "defaultPolicyRef": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+    "lifecycle": { "type": "string", "enum": ["experimental", "active", "deprecated"] },
+    "relations": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" }
+    },
+    "deletion": {
+      "type": "string",
+      "enum": ["cascade_derived", "retain_tombstone", "app_managed"]
+    },
+    "manifestVersion": { "type": "string", "minLength": 1 },
+    "owner": { "type": "string", "minLength": 1 }
+  },
+  "required": [
+    "key",
+    "urnResourceType",
+    "app",
+    "source",
+    "tenant",
+    "defaultPolicyRef",
+    "lifecycle",
+    "relations",
+    "deletion",
+    "manifestVersion",
+    "owner"
+  ],
+  "additionalProperties": false
+}

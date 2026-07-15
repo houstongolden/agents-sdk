@@ -1,0 +1,27 @@
+{
+  "id": "pack-01",
+  "queryId": "query-01",
+  "citations": [
+    {
+      "id": "citation-01",
+      "resourceUrn": "urn:houston:hg:test:bamfai:media.asset:01JTEST",
+      "fieldPath": "/file",
+      "locator": {
+        "kind": "image_region",
+        "x": 0.1,
+        "y": 0.2,
+        "widthWithinRemainder": 0.3333333333,
+        "heightWithinRemainder": 0.5
+      },
+      "snippet": "A conference stage with a presenter.",
+      "score": { "semantic": 0.87, "fused": 0.82 },
+      "sourceVersion": "7",
+      "enrichmentVersion": "image-v1",
+      "confidence": 0.9,
+      "policyDecisionId": "decision-01",
+      "retrievedAt": "2026-07-15T00:00:00.000Z"
+    }
+  ],
+  "conflicts": [],
+  "warnings": []
+}
