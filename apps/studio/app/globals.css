@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@source "../../../packages/ui/src";
+
+:root {
+  --background: #f7f7f5;
+  --foreground: #171715;
+  --sidebar: #efefec;
+  --sidebar-foreground: #242421;
+  --popover: #ffffff;
+  --popover-foreground: #171715;
+  --accent: #ff4f2e;
+  --accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0e0e0d;
+    --foreground: #f1f1ed;
+    --sidebar: #141413;
+    --sidebar-foreground: #e7e7e2;
+    --popover: #1b1b19;
+    --popover-foreground: #f1f1ed;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+a,
+textarea,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
