@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "houston.dev/intelligence/v0.1" },
+    "urn": {
+      "type": "string",
+      "pattern": "^urn:houston:([a-z][a-z0-9-]{0,62}):([a-z][a-z0-9-]{0,62}):([a-z][a-z0-9-]{0,62}):([a-z][a-z0-9._-]{1,127}):([A-Za-z0-9][A-Za-z0-9._~-]{0,127})$"
+    },
+    "resourceType": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+    "source": {
+      "type": "object",
+      "properties": {
+        "adapter": {
+          "type": "string",
+          "enum": ["postgres", "convex", "filesystem", "object_storage", "external_api"]
+        },
+        "nativeId": { "type": "string", "minLength": 1 },
+        "uri": { "type": "string", "format": "uri" }
+      },
+      "required": ["adapter", "nativeId"],
+      "additionalProperties": false
+    },
+    "tenantId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" },
+    "ownerId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" },
+    "sourceVersion": { "type": "string", "minLength": 1 },
+    "sourceHash": { "type": "string", "pattern": "^(?:sha256:)?[a-f0-9]{64}$" },
+    "policyRef": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+    "policyVersion": { "type": "string", "minLength": 1 },
+    "state": {
+      "type": "string",
+      "enum": ["active", "superseded", "tombstoned", "purged", "error"]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+    },
+    "deletedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "urn",
+    "resourceType",
+    "source",
+    "tenantId",
+    "sourceVersion",
+    "sourceHash",
+    "policyRef",
+    "policyVersion",
+    "state",
+    "createdAt",
+    "updatedAt"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "houston.dev/intelligence/v0.1" },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "intelligence.describe_schema",
+              "intelligence.search",
+              "intelligence.get_resource_context",
+              "intelligence.get_related",
+              "intelligence.explain_lineage",
+              "intelligence.get_processing_status",
+              "intelligence.request_refresh",
+              "intelligence.submit_feedback",
+              "intelligence.propose_schema_term",
+              "intelligence.approve_schema_term",
+              "intelligence.request_export",
+              "intelligence.request_delete"
+            ]
+          },
+          "scope": { "type": "string", "minLength": 1 },
+          "risk": { "type": "string", "enum": ["read", "write", "irreversible"] },
+          "approval": { "type": "string", "enum": ["none", "policy", "owner_admin"] },
+          "idempotencyRequired": { "type": "boolean" },
+          "limits": {
+            "type": "object",
+            "properties": {
+              "ratePolicy": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+              "costPolicy": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" }
+            },
+            "required": ["ratePolicy", "costPolicy"],
+            "additionalProperties": false
+          },
+          "audit": {
+            "type": "object",
+            "properties": {
+              "required": { "type": "boolean", "const": true },
+              "eventType": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+              "includePolicyDecision": { "type": "boolean", "const": true }
+            },
+            "required": ["required", "eventType", "includePolicyDecision"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["name", "scope", "risk", "approval", "idempotencyRequired", "limits", "audit"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["schemaVersion", "tools"],
+  "additionalProperties": false
+}
