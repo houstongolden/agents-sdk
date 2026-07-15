@@ -7,7 +7,7 @@ The goal passes only when every check in `ACCEPTANCE.md` has linked evidence. A 
 
 ## Current implementation snapshot
 
-- Stage 1: complete in this repository; remote You.md brain publication remains an upstream blocker tracked as AG-002.
+- Stage 1: complete. You.md brain publication is verified: snapshot HTTP `201` inserted one record; one content payload and six artifacts produced six content insertions with `secretValuesExposed=false`. Readiness is `ready=true` / `status=degraded`; the degraded label reflects safe ineligible metadata-only/non-content artifacts, not a sync failure. A local generated portfolio review artifact refresh remains unverified and non-blocking.
 - Stage 2: first v1 AgentProject contract complete and tested; additional run/event-specific contracts remain part of Stage 3.
 - Stage 3: not complete; the current harness validates manifests but does not yet execute provider-neutral bounded runs or durable approvals.
 - Stage 4: in progress; the compiled CLI creates a contract-complete skeleton and passes conflict/doctor proofs, but not yet a fully installable application.

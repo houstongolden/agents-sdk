@@ -1,6 +1,6 @@
 {
   "schemaVersion": "agenty/tasks/v1",
-  "updatedAt": "2026-07-14T22:50:00-07:00",
+  "updatedAt": "2026-07-14T23:03:16-07:00",
   "goalRef": "project-context/ACCEPTANCE.md",
   "tasks": [
     {
@@ -17,15 +17,17 @@
       "stage": 1,
       "title": "Verify You.md catalog registration without committing .you-project",
       "ownerType": "agent",
-      "status": "blocked",
+      "status": "done",
       "priority": "P0",
       "dependsOn": ["AG-001"],
       "evidence": [
         "youstack.json",
         "~/.agent-shared/STACK-MAP.md@7f9e740",
-        "You.md b1ad5934",
-        "PROJECT_BRAIN_SYNC_SNAPSHOT_FAILED",
-        "PROJECT_BRAIN_INTERNAL"
+        "You.md b1ad5934 (opaque artifact PII scan fix)",
+        "You.md 36c8eab8 (heuristic task evidence remains read-only)",
+        "youmd brain sync: snapshot HTTP 201, inserted 1",
+        "youmd brain sync: content payloads 1, artifacts 6, inserted 6",
+        "youmd brain sync: secretValuesExposed=false, readiness ready=true/status=degraded"
       ]
     },
     {
