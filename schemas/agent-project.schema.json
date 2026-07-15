@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agenty.dev/schemas/agent-project/v1.json",
+  "$comment": "This schema validates portable manifest structure. @agenty/core additionally enforces cross-reference integrity, unique ids, and approval safety semantics.",
+  "title": "Agenty AgentProject v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "metadata",
+    "runtimes",
+    "skills",
+    "tools",
+    "connectors",
+    "policies",
+    "evals",
+    "ui",
+    "provenance"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": "agenty.dev/agent-project/v1" },
+    "kind": { "const": "AgentProject" },
+    "metadata": { "$ref": "#/$defs/metadata" },
+    "runtimes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/runtime" } },
+    "skills": { "type": "array", "items": { "$ref": "#/$defs/skill" } },
+    "tools": { "type": "array", "items": { "$ref": "#/$defs/tool" } },
+    "connectors": { "type": "array", "items": { "$ref": "#/$defs/connector" } },
+    "policies": { "$ref": "#/$defs/policies" },
+    "evals": { "type": "array", "items": { "$ref": "#/$defs/eval" } },
+    "ui": { "$ref": "#/$defs/ui" },
+    "provenance": { "$ref": "#/$defs/provenance" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,62}$" },
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?![/\\\\])(?![A-Za-z]:[/\\\\])(?!.*\\x00)(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "version", "tags"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "description": { "type": "string", "maxLength": 500 },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$" },
+        "tags": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "adapter", "entrypoint", "capabilities"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "adapter": {
+          "enum": ["ai-sdk", "openai-agents", "claude", "codex", "eve", "mcp", "custom"]
+        },
+        "entrypoint": { "$ref": "#/$defs/relativePath" },
+        "capabilities": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "config": { "type": "object" }
+      }
+    },
+    "skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "source", "enabled", "runtimeIds"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value"],
+          "properties": {
+            "type": { "enum": ["local", "package", "registry"] },
+            "value": { "type": "string", "minLength": 1 }
+          },
+          "allOf": [
+            {
+              "if": { "properties": { "type": { "const": "local" } }, "required": ["type"] },
+              "then": { "properties": { "value": { "$ref": "#/$defs/relativePath" } } }
+            }
+          ]
+        },
+        "enabled": { "type": "boolean" },
+        "runtimeIds": { "type": "array", "items": { "$ref": "#/$defs/id" } }
+      }
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "description", "inputSchema", "risk", "approval", "runtimeIds"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "description": { "type": "string", "minLength": 1 },
+        "inputSchema": { "type": "object" },
+        "outputSchema": { "type": "object" },
+        "risk": { "enum": ["read", "write", "irreversible"] },
+        "approval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["required"],
+          "properties": { "required": { "type": "boolean" }, "policyId": { "$ref": "#/$defs/id" } }
+        },
+        "runtimeIds": { "type": "array", "items": { "$ref": "#/$defs/id" } }
+      }
+    },
+    "connector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "auth", "scopes"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "kind": { "enum": ["api", "mcp", "oauth", "webhook", "database", "custom"] },
+        "endpoint": { "type": "string", "format": "uri" },
+        "auth": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "env"],
+          "properties": {
+            "type": { "enum": ["none", "api-key", "oauth2", "service-account", "custom"] },
+            "env": {
+              "type": "array",
+              "items": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" }
+            }
+          }
+        },
+        "scopes": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "when", "approvers"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "when": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["risks", "toolIds"],
+          "properties": {
+            "risks": { "type": "array", "items": { "enum": ["write", "irreversible"] } },
+            "toolIds": { "type": "array", "items": { "$ref": "#/$defs/id" } }
+          }
+        },
+        "approvers": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "enum": ["user", "workspace-admin", "policy-engine"] }
+        },
+        "expiresInSeconds": { "type": "integer", "exclusiveMinimum": 0 }
+      }
+    },
+    "policies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["defaultToolMode", "approvals"],
+      "properties": {
+        "defaultToolMode": { "enum": ["deny", "allow-read"] },
+        "approvals": { "type": "array", "items": { "$ref": "#/$defs/approval" } }
+      }
+    },
+    "eval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "path"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "type": { "enum": ["fixture", "rubric", "programmatic"] },
+        "path": { "$ref": "#/$defs/relativePath" },
+        "threshold": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "ui": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["shell", "surfaces"],
+      "properties": {
+        "shell": { "enum": ["chat", "chat-artifact", "headless"] },
+        "surfaces": {
+          "type": "array",
+          "items": {
+            "enum": ["sidebar", "chat", "artifact", "connectors", "files", "knowledge", "loops"]
+          }
+        },
+        "composer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["owner"],
+          "properties": { "owner": { "const": "parent-shell" } }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["createdAt", "updatedAt", "generator", "source"],
+      "properties": {
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "generator": { "type": "string", "minLength": 1 },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "enum": ["repository", "template", "import"] },
+            "uri": { "type": "string" }
+          }
+        },
+        "revision": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

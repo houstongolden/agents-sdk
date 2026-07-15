@@ -1,0 +1,30 @@
+{
+  "name": "agenty",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The agency for agents: contracts, UI, templates, tools, and evals for production agent apps.",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@10.12.1",
+  "engines": {
+    "node": ">=20.11.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "build": "pnpm -r --if-present run build",
+    "test": "pnpm -r --if-present run test",
+    "typecheck": "pnpm -r --if-present run typecheck",
+    "lint": "pnpm -r --if-present run lint",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "validate": "pnpm build && pnpm typecheck && pnpm test && pnpm lint && pnpm format:check",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  }
+}
