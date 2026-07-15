@@ -2,14 +2,16 @@
 @source "../../../packages/ui/src";
 
 :root {
-  --background: #f7f7f5;
-  --foreground: #171715;
-  --sidebar: #efefec;
-  --sidebar-foreground: #242421;
+  --background: #f7f7f4;
+  --foreground: #111113;
+  --muted: #6b6b68;
+  --sidebar: #efefeb;
+  --sidebar-foreground: #111113;
   --popover: #ffffff;
-  --popover-foreground: #171715;
-  --accent: #ff4f2e;
+  --popover-foreground: #111113;
+  --accent: #2563eb;
   --accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
+  --line: color-mix(in srgb, var(--foreground) 14%, transparent);
 }
 
 @theme inline {
@@ -20,19 +22,9 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-accent: var(--accent);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0e0e0d;
-    --foreground: #f1f1ed;
-    --sidebar: #141413;
-    --sidebar-foreground: #e7e7e2;
-    --popover: #1b1b19;
-    --popover-foreground: #f1f1ed;
-  }
+  --color-muted: var(--muted);
+  --font-sans: var(--font-agents-sans);
+  --font-mono: var(--font-agents-mono);
 }
 
 * {
@@ -48,7 +40,7 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-agents-sans), ui-sans-serif, system-ui, sans-serif;
   text-rendering: optimizeLegibility;
 }
 
@@ -57,6 +49,26 @@ a,
 textarea,
 input {
   -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+.primary-cta {
+  background-color: var(--foreground);
+  color: #f7f7f4;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 ::selection {
