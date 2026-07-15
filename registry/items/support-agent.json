@@ -1,0 +1,144 @@
+{
+  "$schema": "../../schemas/registry-item.schema.json",
+  "schemaVersion": "agents-sdk.com/registry-item/v1",
+  "name": "support-agent",
+  "type": "template",
+  "title": "Support Agent",
+  "description": "A runnable, bounded AI SDK support agent with an evidence-backed read tool.",
+  "version": "0.1.0",
+  "maturity": "preview",
+  "provenance": {
+    "source": "templates/support-agent",
+    "license": "MIT",
+    "reviewedAt": "2026-07-15"
+  },
+  "examples": [],
+  "compatibility": { "node": ">=20", "react": ">=18", "packages": { "ai": ">=7" } },
+  "security": {
+    "notes": [
+      "Provider keys, authenticated users, durable grants, persistence, and deployment boundaries remain host-owned."
+    ]
+  },
+  "accessibility": {
+    "notes": [
+      "The template composes labeled chat, live decision status, and semantic artifact tabs."
+    ]
+  },
+  "registryDependencies": ["agent-chat", "human-approval", "artifact-workspace", "approval-gates"],
+  "dependencies": {
+    "@ai-sdk/openai": "^4.0.0",
+    "ai": "^7.0.0",
+    "lucide-react": "^1.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.4.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.8.0",
+    "vite": "^6.3.5",
+    "vitest": "^3.0.0"
+  },
+  "files": [
+    {
+      "source": "templates/support-agent/package.json",
+      "target": "package.json",
+      "role": "config"
+    },
+    {
+      "source": "templates/support-agent/tsconfig.json",
+      "target": "tsconfig.json",
+      "role": "config"
+    },
+    { "source": "templates/support-agent/index.html", "target": "index.html", "role": "config" },
+    {
+      "source": "templates/support-agent/vite.config.ts",
+      "target": "vite.config.ts",
+      "role": "config"
+    },
+    {
+      "source": "templates/support-agent/.env.example",
+      "target": ".env.example",
+      "role": "config"
+    },
+    {
+      "source": "templates/support-agent/src/agent.ts",
+      "target": "src/agent.ts",
+      "role": "source"
+    },
+    { "source": "templates/support-agent/src/App.tsx", "target": "src/App.tsx", "role": "source" },
+    {
+      "source": "templates/support-agent/src/agent-adapter.ts",
+      "target": "src/agent-adapter.ts",
+      "role": "source"
+    },
+    {
+      "source": "templates/support-agent/src/main.tsx",
+      "target": "src/main.tsx",
+      "role": "source"
+    },
+    {
+      "source": "templates/support-agent/src/styles.css",
+      "target": "src/styles.css",
+      "role": "source"
+    },
+    {
+      "source": "templates/support-agent/src/support-flow.ts",
+      "target": "src/support-flow.ts",
+      "role": "source"
+    },
+    {
+      "source": "templates/support-agent/src/support-data.ts",
+      "target": "src/support-data.ts",
+      "role": "source"
+    },
+    {
+      "source": "templates/support-agent/tests/support-data.test.ts",
+      "target": "tests/support-data.test.ts",
+      "role": "test"
+    },
+    {
+      "source": "templates/support-agent/tests/support-flow.test.ts",
+      "target": "tests/support-flow.test.ts",
+      "role": "test"
+    },
+    {
+      "source": "templates/support-agent/tests/app-composition.test.tsx",
+      "target": "tests/app-composition.test.tsx",
+      "role": "test"
+    },
+    {
+      "source": "templates/support-agent/tests/agent-adapter.test.ts",
+      "target": "tests/agent-adapter.test.ts",
+      "role": "test"
+    },
+    {
+      "source": "templates/support-agent/agent-project.json",
+      "target": "agent-project.json",
+      "role": "config"
+    },
+    { "source": "templates/support-agent/README.md", "target": "README.md", "role": "docs" }
+  ],
+  "documentation": {
+    "path": "README.md",
+    "whenToUse": "Use as the smallest honest server-side AI SDK starting point.",
+    "whenNotToUse": "Do not deploy it before adding host-owned auth, persistence, audit storage, and provider secret handling.",
+    "tradeoffs": [
+      "Auth, persistence, approval, and deployment boundaries are intentionally not claimed."
+    ]
+  },
+  "test": {
+    "command": "pnpm test && pnpm typecheck && pnpm build",
+    "paths": [
+      "tests/support-data.test.ts",
+      "tests/support-flow.test.ts",
+      "tests/app-composition.test.tsx",
+      "tests/agent-adapter.test.ts"
+    ]
+  }
+}

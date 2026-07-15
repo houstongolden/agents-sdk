@@ -1,0 +1,79 @@
+{
+  "$schema": "https://agents-sdk.com/schemas/agent-project/v1.json",
+  "schemaVersion": "agents-sdk.com/agent-project/v1",
+  "kind": "AgentProject",
+  "metadata": {
+    "id": "support-agent",
+    "name": "Support Agent",
+    "description": "A bounded, evidence-backed AI SDK support agent.",
+    "version": "0.1.0",
+    "tags": ["support", "ai-sdk"]
+  },
+  "runtimes": [
+    {
+      "id": "support-runtime",
+      "adapter": "ai-sdk",
+      "entrypoint": "src/agent.ts",
+      "capabilities": ["chat", "tools"]
+    }
+  ],
+  "skills": [],
+  "tools": [
+    {
+      "id": "lookup-order",
+      "description": "Read an order status.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["orderId"],
+        "properties": { "orderId": { "type": "string" } }
+      },
+      "risk": "read",
+      "approval": { "required": false },
+      "runtimeIds": ["support-runtime"]
+    },
+    {
+      "id": "issue-credit",
+      "description": "Issue an approved account credit.",
+      "inputSchema": {
+        "type": "object",
+        "required": ["orderId", "amount"],
+        "properties": { "orderId": { "type": "string" }, "amount": { "type": "number" } }
+      },
+      "risk": "write",
+      "approval": { "required": true, "policyId": "credit-approval" },
+      "runtimeIds": ["support-runtime"]
+    }
+  ],
+  "connectors": [],
+  "policies": {
+    "defaultToolMode": "allow-read",
+    "approvals": [
+      {
+        "id": "credit-approval",
+        "when": { "risks": ["write"], "toolIds": ["issue-credit"] },
+        "approvers": ["user"],
+        "expiresInSeconds": 900
+      }
+    ]
+  },
+  "evals": [
+    {
+      "id": "support-data",
+      "type": "programmatic",
+      "path": "tests/support-data.test.ts",
+      "threshold": 1
+    }
+  ],
+  "ui": {
+    "shell": "chat-artifact",
+    "surfaces": ["chat", "artifact"],
+    "composer": { "owner": "parent-shell" }
+  },
+  "provenance": {
+    "createdAt": "2026-07-15T00:00:00.000Z",
+    "updatedAt": "2026-07-15T00:00:00.000Z",
+    "generator": "@agents-sdk/cli",
+    "source": { "type": "template", "uri": "registry:support-agent" },
+    "revision": "v0.1.0"
+  }
+}

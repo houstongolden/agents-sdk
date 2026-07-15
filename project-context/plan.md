@@ -1,73 +1,85 @@
-# Agenty eight-stage plan
+# Agents SDK v0.1 plan
 
-**Status:** active  
-**North-star goal:** From a clean clone, a developer can choose a starter, define a typed agent with tools and approvals, run it locally, inspect streaming/tool/artifact state, execute safety and capability evals, and receive a machine-readable conformance report in 15 minutes without copying private project code or secrets.
+**Status:** A1–A7 complete locally; A8 public release pending
+**Positioning:** The open-source component system for building production agentic applications.
+**North-star goal:** Pass every gate in `ACCEPTANCE.md` from a clean directory without fake inventory or a hosted runtime dependency.
 
-The goal passes only when every check in `ACCEPTANCE.md` has linked evidence. A polished demo without reproducible commands does not pass.
+## Current release state
 
-## Current implementation snapshot
+The previous Agenty direction remains superseded. The Agents SDK product reset and local v0.1 implementation now pass A1–A7, including repository validation, docs/catalog browser QA, and a clean-room support-agent install/test/typecheck/build proof. The canonical repository path is `/Users/houstongolden/Desktop/CODE_2025/agents-sdk`; the prior `agenty` path is a temporary compatibility symlink only. The dated [full project handoff audit](audits/2026-07-15-full-project-handoff/00-README.md) preserves documentation and implementation continuity. Public release evidence remains A8 work.
 
-- Stage 1: complete. You.md brain publication is verified: snapshot HTTP `201` inserted one record; one content payload and six artifacts produced six content insertions with `secretValuesExposed=false`. Readiness is `ready=true` / `status=degraded`; the degraded label reflects safe ineligible metadata-only/non-content artifacts, not a sync failure. A local generated portfolio review artifact refresh remains unverified and non-blocking.
-- Stage 2: first v1 AgentProject contract complete and tested; additional run/event-specific contracts remain part of Stage 3.
-- ADIL v0.1: the provider-neutral intelligence package now owns canonical URNs and locators, registry and record contracts, generated JSON Schemas, twelve typed `intelligence.*` tool contracts, semantic manifest validation, and an adapter conformance utility. Product auth/RLS, source mappings, migrations, and deployment remain app-owned.
-- Stage 3: not complete; the current harness validates manifests but does not yet execute provider-neutral bounded runs or durable approvals.
-- Stage 4: in progress; the compiled CLI creates a contract-complete skeleton and passes conflict/doctor proofs, but not yet a fully installable application.
-- Stage 5: first reference proof passes desktop/mobile browser QA; approval interaction and durable artifact lifecycle remain.
-- Stage 6: in progress; deterministic acceptance exists, full conformance and learning-proposal ingestion do not.
-- Stages 7–8: planned.
+## Phase 1 — Identity, scope, and information architecture
 
-## Stage 1 — Foundation and ownership
+**Status:** complete.
 
-Define vision, repository rules, monorepo tooling, source-of-truth boundaries, decision/provenance ledgers, tasks, and acceptance contract.
+Rename the product, packages, schemas, command language, project context, and public copy. Establish the eight-area navigation and clearly separate shipped, preview, and roadmap inventory.
 
-**Exit:** required context files parse; clean install and root validation commands are documented; no `.you-project` or secret is committed.
+**Exit:** A1 passes; repository search finds no active legacy brand; v0.1 inventory is exact.
 
-## Stage 2 — Versioned contracts
+## Phase 2 — Public docs foundation
 
-Implement schemas/types for agent, tool, skill, connector, approval, artifact, run event, eval, and conformance manifests. Include examples and compatibility policy.
+**Status:** complete. Browser QA passes across desktop, mobile, overflow, console, approval, menu, and CTA flows; 23 pages generate.
 
-**Exit:** valid fixtures pass, intentionally invalid fixtures fail with actionable paths, and JSON Schema output matches runtime validation.
+Replace the chat-dashboard-first site with the industrial-editorial homepage, documentation shell, catalog navigation, item-page anatomy, and restrained BAMF attribution defined in `DESIGN.md`.
 
-ADIL extension evidence is tracked as AG-010. Its JSON Schemas are generated from
-the Zod source during build, and its public README records the authorization and
-semver boundaries needed by product adapters.
+**Exit:** A2 passes on desktop and mobile with accessibility and visual evidence.
 
-## Stage 3 — Runtime and safety harness
+## Phase 3 — Registry and CLI ownership loop
 
-Build provider-neutral execution, typed tool dispatch, bounded loops, cancellation, durable run events, approval gates, redaction, budgets, and replay.
+**Status:** complete. Core and CLI contract suites pass; compiled clean-room `init/add/diff/doctor` proof passes.
 
-**Exit:** deterministic fake-provider tests prove approve/deny/expire, retry/idempotency, cancellation, and replay behavior.
+Define the registry item contract. Implement `agents init`, `add`, `list`, `diff`, and `doctor` with deterministic file planning, dependency handling, conflict refusal, local-modification detection, and rollback on failed writes.
 
-## Stage 4 — Starter and CLI
+**Exit:** A3 and A4 pass from a temporary clean application.
 
-Ship a single-command scaffold with adapter choices, local env template, sample agent/tool, tests, and upgrade-safe configuration.
+## Phase 4 — Three excellent components
 
-**Exit:** a temporary clean directory can scaffold, install, typecheck, test, and run the sample without manual source edits.
+**Status:** complete. Component, site, and browser evidence pass for all three v0.1 items.
 
-## Stage 5 — Agentic application UI
+Ship `agent-chat`, `human-approval`, and `artifact-workspace` as installable, developer-owned source. Each gets a focused example, tests, item docs, responsive and accessibility proof, error/empty/loading states, and integration boundaries.
 
-Package the Houston shell: collapsible sidebar, chat-first session, parent-shell composer, typed message parts, connectors, progress/tool rows, approvals, and durable artifact pane.
+**Exit:** A5 passes. A component is not accepted merely because a similarly named internal primitive exists.
 
-**Exit:** component tests, responsive browser flows, accessibility checks, and visual evidence pass; no nested composer focus border is introduced.
+## Phase 5 — Pattern and complete template
 
-## Stage 6 — Evals, conformance, and learning loop
+**Status:** complete. The clean-room template installs dependencies, runs 11 tests, typechecks, and builds.
 
-Add capability/safety eval fixtures, conformance CLI/report, provenance checks, regression ledgers, and proposal-only cross-project learning ingestion.
+Ship the `approval-gates` architecture pattern with named failure paths, then build one support-agent template that composes all three components and demonstrates a consequential action requiring allow/deny approval.
 
-**Exit:** conformance catches a broken example; learning proposals contain source, owner, evidence, privacy class, and approval without auto-editing upstream repos.
+**Exit:** A6 passes, including clean install and runnable behavior.
 
-## Stage 7 — Docs, examples, and service system
+## Phase 6 — Documentation and contributor proof
 
-Publish the architecture, API/MCP contracts, recipes, reference apps, delivery discovery/audit/build/acceptance templates, and public/private boundary.
+**Status:** complete. API docs guard, JSON, diff, secret, package dry-run, and fresh-developer proofs pass.
 
-**Exit:** a new contributor completes the quickstart; one BAMF-shaped reference and one neutral reference pass; service deliverables map to framework artifacts.
+Complete quickstart, registry authoring, contribution, compatibility, security, accessibility, customization, and upgrade/diff guidance. Run the flow with a fresh contributor perspective.
 
-## Stage 8 — Release and proof
+**Exit:** A7 passes with no generic filler or empty pages presented as product.
 
-Release the first version, deploy `agenty.so`, run the clean-clone proof on a second machine/worktree, publish limitations and changelog, and create the ongoing improvement cadence.
+## Documentation continuity and handoff milestone
 
-**Exit:** all acceptance gates pass from the tagged release, install artifacts are reproducible, rollback is documented, and any `agenty.io` purchase remains a human business decision.
+**Status:** complete 2026-07-15.
+
+Rename the physical repository identity to lowercase `agents-sdk` without losing the active Codex task, Git history, linked worktrees, project context, or provenance. Preserve the old `agenty` path only as a compatibility symlink. Produce a comprehensive, dated, source-linked handoff package covering the thread/work log, prompt history, documentation and code inventories, decisions/status/source-of-truth hierarchy, risks, gaps, and next actions.
+
+**Exit:** D-013 is recorded; canonical context links to the [2026-07-15 handoff audit](audits/2026-07-15-full-project-handoff/00-README.md); the exact rename and audit prompts remain in `prompts.md`; Phase 7/A8 remains pending rather than being inferred complete from documentation work.
+
+## Phase 7 — Release proof
+
+**Status:** pending.
+
+Publish the scoped packages and agents-sdk.com only after clean CI, second-worktree/machine proof, package provenance, limitations, changelog, rollback, and human launch approval.
+
+**Exit:** A8 passes.
+
+Remaining work is intentionally external and release-specific: publish scoped packages, serve the accepted build at agents-sdk.com, prove npm/domain/GitHub organization ownership and access, create tagged rollback evidence, and repeat the release proof in the required second environment.
+
+## Transition stabilization
+
+**Status:** collision cleanup complete; branch custody, durability, and You.md authority pending.
+
+The old `agenty` path resolves to the canonical repository and requires no file copy. The recovered task history is indexed in the handoff audit. The 29 visible historical collision snapshots and six ignored generated collision artifacts were proven non-unique and removed, restoring a canonical raw working tree. Remaining transition work is to review the separate `codex/adil-contracts` worktree, establish remote/off-machine durability, and restore supported You.md write authority without bypassing its guards.
 
 ## Work loop
 
-For every stage: inventory evidence → specify the contract → implement the smallest complete slice → test failure paths → review ownership/security → record proof → commit one logical change. Cross-project discoveries enter as proposals first.
+For each item: verify the repeated user problem → inventory proven source → record provenance → specify the registry contract → implement the smallest complete slice → test happy and shadow paths → document tradeoffs → run visual/accessibility/security review → record evidence → commit one logical change.

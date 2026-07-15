@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/registry-item.schema.json",
+  "schemaVersion": "agents-sdk.com/registry-item/v1",
+  "name": "artifact-workspace",
+  "type": "component",
+  "title": "Artifact Workspace",
+  "description": "A compact, accessible surface for durable outputs outside chat text.",
+  "version": "0.1.0",
+  "maturity": "preview",
+  "provenance": {
+    "source": "packages/ui/src/ArtifactWorkspace.tsx",
+    "license": "MIT",
+    "reviewedAt": "2026-07-15"
+  },
+  "examples": ["support-agent", "artifact-flow"],
+  "compatibility": { "node": ">=20", "react": ">=18", "packages": {} },
+  "security": {
+    "notes": [
+      "Validate untrusted artifact payloads before rendering and enforce host permissions before loading versions."
+    ]
+  },
+  "accessibility": {
+    "notes": [
+      "Tabs expose tab and selected semantics and the host must preserve heading structure in children."
+    ]
+  },
+  "registryDependencies": [],
+  "dependencies": { "react": "^19.0.0", "react-dom": "^19.0.0" },
+  "devDependencies": { "vitest": "^3.2.4" },
+  "files": [
+    {
+      "source": "sources/components/artifact-workspace.tsx",
+      "target": "components/artifact-workspace.tsx",
+      "role": "source"
+    },
+    {
+      "source": "sources/components/artifact-workspace.test.tsx",
+      "target": "components/artifact-workspace.test.tsx",
+      "role": "test"
+    },
+    {
+      "source": "sources/components/artifact-workspace.md",
+      "target": "components/artifact-workspace.md",
+      "role": "docs"
+    }
+  ],
+  "documentation": {
+    "path": "components/artifact-workspace.md",
+    "whenToUse": "Use when generated outputs need a lifecycle distinct from conversation history.",
+    "whenNotToUse": "Do not use it as a persistence layer, artifact validator, or binary sandbox.",
+    "tradeoffs": ["Persistence, versioning, editing, and typed renderers remain application-owned."]
+  },
+  "test": {
+    "command": "vitest run components/artifact-workspace.test.tsx",
+    "paths": ["components/artifact-workspace.test.tsx"]
+  }
+}

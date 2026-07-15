@@ -38,7 +38,7 @@ describe("ArtifactSpec", () => {
 
   it("rejects malformed roots and unsupported versions", () => {
     expect(safeParseArtifactSpec("not json").error).toBe("invalid-json");
-    expect(safeParseArtifactSpec({ schemaVersion: "agenty.artifact/v2" }).error).toBe(
+    expect(safeParseArtifactSpec({ schemaVersion: "agents-sdk.artifact/v2" }).error).toBe(
       "unsupported-version",
     );
     expect(parseArtifactSpec(null)).toBeNull();

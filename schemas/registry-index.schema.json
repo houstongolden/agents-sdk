@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agents-sdk.com/schemas/registry-index/v1.json",
+  "title": "Agents SDK registry index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "items"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": "agents-sdk.com/registry-index/v1" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "type", "path"],
+        "properties": {
+          "name": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,62}$" },
+          "type": { "enum": ["component", "pattern", "template", "example"] },
+          "path": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

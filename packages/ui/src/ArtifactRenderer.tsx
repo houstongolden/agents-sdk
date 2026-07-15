@@ -178,12 +178,12 @@ function alertClass(tone: "info" | "warning" | "error" | "success") {
 }
 
 function formatCell(value: unknown) {
-  if (value === null || value === undefined) return "—";
+  if (value === null || value === undefined) return "Not available";
   if (typeof value === "string" || typeof value === "number" || typeof value === "boolean")
     return String(value);
   try {
     return JSON.stringify(value);
   } catch {
-    return "—";
+    return "Not available";
   }
 }

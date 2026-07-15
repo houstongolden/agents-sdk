@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/registry-item.schema.json",
+  "schemaVersion": "agents-sdk.com/registry-item/v1",
+  "name": "approval-gates",
+  "type": "pattern",
+  "title": "Approval Gates",
+  "description": "Bind approvals to exact tool inputs, expiry, and one-time execution.",
+  "version": "0.1.0",
+  "maturity": "preview",
+  "provenance": {
+    "source": "registry/sources/patterns/approval-gates.ts",
+    "license": "MIT",
+    "reviewedAt": "2026-07-15"
+  },
+  "examples": ["approval-flow", "support-agent"],
+  "compatibility": { "node": ">=20", "packages": {} },
+  "security": {
+    "notes": [
+      "Production storage must bind immutable input, authenticated approver, expiry, and one-time consumption transactionally."
+    ]
+  },
+  "accessibility": {
+    "notes": [
+      "Approval clients must present the exact action and consequence before collecting a decision."
+    ]
+  },
+  "registryDependencies": [],
+  "dependencies": {},
+  "devDependencies": { "vitest": "^3.2.4" },
+  "files": [
+    {
+      "source": "sources/patterns/approval-gates.ts",
+      "target": "patterns/approval-gates.ts",
+      "role": "source"
+    },
+    {
+      "source": "sources/patterns/approval-gates.test.ts",
+      "target": "patterns/approval-gates.test.ts",
+      "role": "test"
+    },
+    {
+      "source": "sources/patterns/approval-gates.md",
+      "target": "patterns/approval-gates.md",
+      "role": "docs"
+    }
+  ],
+  "documentation": {
+    "path": "patterns/approval-gates.md",
+    "whenToUse": "Use at the server boundary before consequential tool execution.",
+    "whenNotToUse": "Do not gate cheap read-only work or execute based only on client state.",
+    "tradeoffs": ["Production stores must enforce single consumption transactionally."]
+  },
+  "test": {
+    "command": "vitest run patterns/approval-gates.test.ts",
+    "paths": ["patterns/approval-gates.test.ts"]
+  }
+}

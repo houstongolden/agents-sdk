@@ -1,62 +1,47 @@
 {
-  "schemaVersion": "agenty/braindump/v1",
-  "capturedAt": "2026-07-14T00:00:00-07:00",
-  "source": "project-context/prompts.md#2026-07-14--found-agenty-as-the-agency-for-agents",
-  "thesis": "Agenty is both the agency for agents and the reusable framework used to build them.",
-  "outcomes": [
-    "Create a durable home for cross-project agent engineering standards.",
-    "Ship a live-coding/vibe-coding starter for many kinds of agent applications.",
-    "Continuously improve from evidence gathered across active agent products.",
-    "Support an open-source framework and a high-ticket agent-building service."
-  ],
-  "requestedAssets": [
-    "ui",
+  "schemaVersion": "agents-sdk/brief/v1",
+  "capturedAt": "2026-07-14T23:59:00-07:00",
+  "source": "project-context/prompts.md#2026-07-14--reset-to-agents-sdk",
+  "supersedes": "project-context/prompts.md#2026-07-14--found-agenty-as-the-agency-for-agents",
+  "thesis": "Agents SDK is the open-source component system for building production agentic applications.",
+  "product": {
+    "name": "Agents SDK",
+    "website": "agents-sdk.com",
+    "githubOrganization": "agents-sdk",
+    "npmScope": "@agents-sdk",
+    "executable": "agents"
+  },
+  "areas": [
+    "components",
+    "agents-and-skills",
+    "tools-and-mcp",
+    "patterns",
     "templates",
-    "skills",
-    "best-practices",
-    "schemas",
-    "tools",
-    "frameworks",
-    "harnesses",
-    "stacks",
-    "project-context",
-    "You.md integration"
+    "examples",
+    "cli",
+    "docs"
   ],
-  "constraints": [
-    "Use existing best practices and provenance.",
-    "Produce a real verifiable goal and iterate against it.",
-    "Keep shared skills, You.md data, and product-specific logic with their canonical owners.",
-    "Do not treat agenty.io purchase as an implementation dependency."
+  "v0_1": {
+    "components": ["agent-chat", "human-approval", "artifact-workspace"],
+    "patterns": ["approval-gates"],
+    "templates": ["support-agent"],
+    "examples": ["chat-streaming", "approval-decision", "artifact-workspace"],
+    "cli": ["init", "add", "list", "diff", "doctor"]
+  },
+  "principles": [
+    "Developers install readable source, customize it, and own the result.",
+    "Documentation explains when, why, tradeoffs, production boundaries, and failure paths.",
+    "Quality and proof matter more than catalog size.",
+    "Roadmap categories are not shipped inventory.",
+    "BAMF attribution and enterprise services remain secondary."
   ],
-  "opportunities": [
-    {
-      "id": "framework",
-      "value": "Open, composable agent application foundation",
-      "customer": "agent builders and product teams"
-    },
-    {
-      "id": "service",
-      "value": "Premium discovery-to-production agent delivery",
-      "customer": "BAMF and external clients"
-    },
-    {
-      "id": "learning-network",
-      "value": "Evidence-backed cross-project improvement loop",
-      "customer": "Houston's project portfolio"
-    }
-  ],
-  "humanDecisions": [
-    "open-source versus proprietary boundary",
-    "service offer and pricing",
-    "production launch",
-    "agenty.io purchase"
-  ],
-  "risks": [
-    "becoming an uncurated dumping ground",
-    "duplicating canonical shared skills",
-    "copying private or paid material",
-    "framework abstraction before proof",
-    "unverified self-modification"
+  "reject": [
+    "agency-first positioning",
+    "universal provider-neutral runtime",
+    "generic AI marketing",
+    "premature marketplace or managed-cloud claims",
+    "empty catalog pages",
+    "fake capabilities"
   ],
   "successRef": "project-context/ACCEPTANCE.md"
 }

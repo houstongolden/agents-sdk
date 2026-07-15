@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://agenty.dev/schemas/agent-project/v1.json",
-  "$comment": "This schema validates portable manifest structure. @agenty/core additionally enforces cross-reference integrity, unique ids, and approval safety semantics.",
-  "title": "Agenty AgentProject v1",
+  "$id": "https://agents-sdk.com/schemas/agent-project/v1.json",
+  "$comment": "This secondary schema validates portable agent-project structure. @agents-sdk/core additionally enforces cross-reference integrity, unique ids, and approval safety semantics.",
+  "title": "Agents SDK AgentProject v1",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -20,7 +20,7 @@
   ],
   "properties": {
     "$schema": { "type": "string" },
-    "schemaVersion": { "const": "agenty.dev/agent-project/v1" },
+    "schemaVersion": { "const": "agents-sdk.com/agent-project/v1" },
     "kind": { "const": "AgentProject" },
     "metadata": { "$ref": "#/$defs/metadata" },
     "runtimes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/runtime" } },

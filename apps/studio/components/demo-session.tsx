@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArtifactRenderer, ChatComposer, RightPane, starterConnectors } from "@agenty/ui";
+import { ArtifactRenderer, ChatComposer, RightPane, starterConnectors } from "@agents-sdk/ui";
 import {
   CheckCircle2,
   Circle,
@@ -74,7 +74,7 @@ export function DemoSession({ initialPrompt = DEFAULT_PROMPT }: { initialPrompt?
 
   const rightPane = (
     <RightPane
-      title="Reference output"
+      title="Fixture output"
       open={paneOpen}
       activeMode={paneMode}
       onModeChange={setPaneMode}
@@ -117,7 +117,7 @@ export function DemoSession({ initialPrompt = DEFAULT_PROMPT }: { initialPrompt?
       <section className="relative flex min-w-0 flex-1 flex-col">
         <header className="flex h-14 shrink-0 items-center justify-between border-b border-foreground/10 px-4 sm:px-5">
           <div className="min-w-0">
-            <h1 className="truncate text-sm font-medium">Deterministic reference build</h1>
+            <h1 className="truncate text-sm font-medium">Deterministic UI preview</h1>
             <p className="truncate text-[11px] text-foreground/40">
               No provider key · no auth · no external writes
             </p>
@@ -136,7 +136,7 @@ export function DemoSession({ initialPrompt = DEFAULT_PROMPT }: { initialPrompt?
                 type="button"
                 onClick={() => setPaneOpen(true)}
                 className="inline-flex h-8 w-8 items-center justify-center rounded-[7px] text-foreground/52 hover:bg-foreground/[0.055] hover:text-foreground"
-                aria-label="Open reference output"
+                aria-label="Open fixture output"
               >
                 <PanelRight className="h-4 w-4" />
               </button>
@@ -183,7 +183,7 @@ export function DemoSession({ initialPrompt = DEFAULT_PROMPT }: { initialPrompt?
             ) : run.status === "running" ? (
               <div className="flex items-center gap-2 text-xs text-foreground/42">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-                Agenty is working through the fixed build phases
+                The local fixture is replaying fixed build phases
               </div>
             ) : run.status === "stopped" ? (
               <div className="text-sm text-foreground/48">
@@ -193,7 +193,7 @@ export function DemoSession({ initialPrompt = DEFAULT_PROMPT }: { initialPrompt?
           </div>
         </div>
 
-        <div className="shrink-0 bg-gradient-to-t from-background via-background to-transparent pt-4">
+        <div className="shrink-0 border-t border-foreground/10 bg-background pt-4">
           <ChatComposer
             value={draft}
             onChange={setDraft}
@@ -201,7 +201,7 @@ export function DemoSession({ initialPrompt = DEFAULT_PROMPT }: { initialPrompt?
             onStop={stop}
             running={run.status === "running"}
             connectors={starterConnectors}
-            selectedConnectorIds={["github"]}
+            selectedConnectorIds={[]}
             contextChips={[{ id: "runtime", label: "Local deterministic runtime" }]}
             actions={["attach", "mention", "connectors", "mode", "stop", "send"]}
             placeholder="Describe another agent to build..."
@@ -213,7 +213,7 @@ export function DemoSession({ initialPrompt = DEFAULT_PROMPT }: { initialPrompt?
         <button
           type="button"
           className="fixed inset-0 z-40 bg-black/45 backdrop-blur-[1px] xl:hidden"
-          aria-label="Close reference output"
+          aria-label="Close fixture output"
           onClick={() => setPaneOpen(false)}
         />
       ) : null}

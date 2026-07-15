@@ -1,4 +1,4 @@
-import { ARTIFACT_SCHEMA_VERSION, type ArtifactSpec } from "@agenty/ui";
+import { ARTIFACT_SCHEMA_VERSION, type ArtifactSpec } from "@agents-sdk/ui";
 
 export type DemoPhaseId = "understand" | "inspect" | "compose" | "verify";
 export type DemoPhaseStatus = "pending" | "running" | "done";
@@ -118,7 +118,7 @@ export function createDemoSequence(prompt: string): DemoStreamEvent[] {
         call: {
           id: "tool-contracts",
           name: "inspect_contracts",
-          label: "Inspect Agenty contracts",
+          label: "Inspect Agents SDK contracts",
           status: "running",
           detail: "Reading local package exports",
         },
@@ -131,7 +131,7 @@ export function createDemoSequence(prompt: string): DemoStreamEvent[] {
         call: {
           id: "tool-contracts",
           name: "inspect_contracts",
-          label: "Inspect Agenty contracts",
+          label: "Inspect Agents SDK contracts",
           status: "complete",
           detail: "4 reusable boundaries selected",
         },
@@ -209,7 +209,7 @@ export function createDemoSequence(prompt: string): DemoStreamEvent[] {
         detail: "Deterministic verification passed",
       },
     },
-    { delayMs: 2300, part: { type: "text-delta", delta: "The reference build is ready. " } },
+    { delayMs: 2300, part: { type: "text-delta", delta: "The deterministic preview is ready. " } },
     {
       delayMs: 2460,
       part: {
@@ -225,15 +225,15 @@ export function createDemoArtifact(prompt: string): ArtifactSpec {
   const request = prompt.trim() || "Build a reusable, verifiable agent application.";
   return {
     schemaVersion: ARTIFACT_SCHEMA_VERSION,
-    id: "local-reference-build",
-    title: "Reference agent build",
+    id: "local-preview-build",
+    title: "Fixture agent output",
     summary: request,
     status: "complete",
     blocks: [
       {
         id: "architecture",
         type: "markdown",
-        body: "## Architecture\n\nA chat-first shell drives a deterministic workflow. Progress and tool calls stay transient; the versioned artifact remains durable and independently renderable.",
+        body: "## Architecture\n\nThis browser-only fixture replays a fixed workflow. It demonstrates separate chat, progress, tool-call, and artifact states without claiming a model, transport, or persistence layer.",
       },
       {
         id: "contracts",
@@ -246,7 +246,7 @@ export function createDemoArtifact(prompt: string): ArtifactSpec {
         rows: [
           { surface: "Shell", contract: "Adapter-owned routing and session state" },
           { surface: "Stream", contract: "Discriminated local event parts" },
-          { surface: "Artifact", contract: "agenty.artifact/v1" },
+          { surface: "Artifact", contract: "agents-sdk.artifact/v1" },
           { surface: "Verification", contract: "Deterministic reducer and schema tests" },
         ],
       },
@@ -258,7 +258,7 @@ export function createDemoArtifact(prompt: string): ArtifactSpec {
           { id: "runtime", label: "Connect a verified chat transport", status: "pending" },
           { id: "persistence", label: "Persist sessions and artifact versions", status: "pending" },
           { id: "approval", label: "Add approval for consequential writes", status: "pending" },
-          { id: "local-proof", label: "Keep the local deterministic proof", status: "done" },
+          { id: "local-proof", label: "Keep the deterministic fixture", status: "done" },
         ],
       },
     ],

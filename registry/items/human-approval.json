@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/registry-item.schema.json",
+  "schemaVersion": "agents-sdk.com/registry-item/v1",
+  "name": "human-approval",
+  "type": "component",
+  "title": "Human Approval",
+  "description": "An explicit approval surface for consequential tool calls.",
+  "version": "0.1.0",
+  "maturity": "preview",
+  "provenance": {
+    "source": "packages/ui/src/HumanApproval.tsx",
+    "license": "MIT",
+    "reviewedAt": "2026-07-15"
+  },
+  "examples": ["approval-flow", "support-agent"],
+  "compatibility": { "node": ">=20", "react": ">=18", "packages": { "lucide-react": ">=0" } },
+  "security": {
+    "notes": [
+      "The component records no authority; the server must bind, expire, consume, and audit each grant."
+    ]
+  },
+  "accessibility": {
+    "notes": [
+      "Status is announced with aria-live, decisions use explicit labels, and resolved controls are disabled."
+    ]
+  },
+  "registryDependencies": ["approval-gates"],
+  "dependencies": { "lucide-react": "^1.0.0", "react": "^19.0.0", "react-dom": "^19.0.0" },
+  "devDependencies": { "vitest": "^3.2.4" },
+  "files": [
+    {
+      "source": "sources/components/human-approval.tsx",
+      "target": "components/human-approval.tsx",
+      "role": "source"
+    },
+    {
+      "source": "sources/components/human-approval.test.tsx",
+      "target": "components/human-approval.test.tsx",
+      "role": "test"
+    },
+    {
+      "source": "sources/components/human-approval.md",
+      "target": "components/human-approval.md",
+      "role": "docs"
+    }
+  ],
+  "documentation": {
+    "path": "components/human-approval.md",
+    "whenToUse": "Use after the server creates a durable request for a write or irreversible action.",
+    "whenNotToUse": "Do not interrupt cheap, read-only, reversible work or treat a client callback as authorization.",
+    "tradeoffs": ["The UI collects intent but cannot enforce authorization."]
+  },
+  "test": {
+    "command": "vitest run components/human-approval.test.tsx",
+    "paths": ["components/human-approval.test.tsx"]
+  }
+}

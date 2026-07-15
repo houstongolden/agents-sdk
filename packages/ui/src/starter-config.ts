@@ -90,8 +90,7 @@ export const starterConnectors: ConnectorCatalogEntry[] = [
     category: "Development",
     domain: "github.com",
     authKind: "oauth",
-    availability: "live",
+    availability: "planned",
     capabilities: ["read", "sync"],
-    recommended: true,
   },
 ];

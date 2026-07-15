@@ -1,5 +1,5 @@
-import { StudioShell } from "@/components/studio-shell";
+import { SiteShell } from "@/components/site-shell";
 
 export default function StudioLayout({ children }: { children: React.ReactNode }) {
-  return <StudioShell>{children}</StudioShell>;
+  return <SiteShell>{children}</SiteShell>;
 }

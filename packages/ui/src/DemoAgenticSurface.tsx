@@ -92,7 +92,7 @@ export function DemoAgenticSurface() {
     <AppShell
       sidebar={
         <Sidebar
-          appName="Agenty"
+          appName="Agents SDK preview"
           sections={starterSidebarSections}
           projects={[{ id: "starter", label: "Starter app", href: "#starter" }]}
           sessions={[{ id: "demo", title: "First agent session", href: "#demo" }]}

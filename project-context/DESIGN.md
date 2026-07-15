@@ -1,12 +1,7 @@
 # Design direction
 
-Agenty should feel precise, capable, and calm: an engineering workbench with an agency-level finish.
+The canonical Agents SDK visual and interaction system is [`../DESIGN.md`](../DESIGN.md).
 
-- Marketing/docs: restrained monochrome foundation, one electric accent, strong editorial hierarchy, copyable code, clear proof and service CTAs.
-- Product shell: full-height, collapsible left navigation; chat-first home/session; optional right artifact/work pane; bottom account popout.
-- Composer: one visible outer boundary only—no nested hover/focus rings, borders, or shadows.
-- Dense surfaces: one section shell with typography, spacing, dividers, and rows rather than cards inside cards.
-- Agent state is visible: plan, tool calls, approvals, progress, stop, sources, artifacts, and eval results.
-- Mobile uses deliberate drawers/tabs and preserves the primary task.
+The short version: industrial-editorial developer documentation; IBM Plex Sans plus JetBrains Mono; warm off-white, near-black ink, muted gray, clear blue, and restrained success green; thin dividers; no gradients, decorative card grids, generic AI filler, or agency-first calls to action.
 
-Accessibility, responsive behavior, reduced motion, keyboard navigation, and empty/error/loading states are release criteria, not polish backlog.
+The public experience is docs/registry-first. The authenticated chat shell remains reusable source and demonstration material, not the primary site architecture.

@@ -1,0 +1,57 @@
+{
+  "$schema": "../../schemas/registry-item.schema.json",
+  "schemaVersion": "agents-sdk.com/registry-item/v1",
+  "name": "artifact-flow",
+  "type": "example",
+  "title": "Artifact Flow",
+  "description": "A focused boundary-validation example for versioned model output.",
+  "version": "0.1.0",
+  "maturity": "experimental",
+  "provenance": {
+    "source": "registry/sources/examples/artifact-flow.ts",
+    "license": "MIT",
+    "reviewedAt": "2026-07-15"
+  },
+  "examples": [],
+  "compatibility": { "node": ">=20", "packages": {} },
+  "security": {
+    "notes": ["Treat model output as untrusted and validate it before storage or rendering."]
+  },
+  "accessibility": {
+    "notes": [
+      "Artifact renderers remain responsible for semantic headings, labels, and keyboard interaction."
+    ]
+  },
+  "registryDependencies": [],
+  "dependencies": {},
+  "devDependencies": { "vitest": "^3.2.4" },
+  "files": [
+    {
+      "source": "sources/examples/artifact-flow.ts",
+      "target": "examples/artifact-flow.ts",
+      "role": "example"
+    },
+    {
+      "source": "sources/examples/artifact-flow.test.ts",
+      "target": "examples/artifact-flow.test.ts",
+      "role": "test"
+    },
+    {
+      "source": "sources/examples/artifact-flow.md",
+      "target": "examples/artifact-flow.md",
+      "role": "docs"
+    }
+  ],
+  "documentation": {
+    "path": "examples/artifact-flow.md",
+    "whenToUse": "Use before persisting or rendering model-generated artifacts.",
+    "whenNotToUse": "Do not use manual checks once the artifact contract becomes nested or user-extensible.",
+    "tradeoffs": [
+      "The focused example uses manual checks; production applications should use a schema validator."
+    ]
+  },
+  "test": {
+    "command": "vitest run examples/artifact-flow.test.ts",
+    "paths": ["examples/artifact-flow.test.ts"]
+  }
+}

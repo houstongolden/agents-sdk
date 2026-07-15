@@ -11,7 +11,7 @@ import {
 } from "../src/index.js";
 
 const valid = {
-  schemaVersion: "agenty.dev/agent-project/v1",
+  schemaVersion: "agents-sdk.com/agent-project/v1",
   kind: "AgentProject",
   metadata: { id: "test-agent", name: "Test Agent", version: "0.1.0", tags: [] },
   runtimes: [

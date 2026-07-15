@@ -2,18 +2,22 @@
 
 ## Foundation
 
-- pnpm workspace, TypeScript strict mode, Node 20+.
-- Framework-neutral contracts with JSON Schema/runtime validation.
-- Vitest for unit/contract tests; governed visible-browser QA for product flows.
-- React package for reusable UI; Next.js is the likely docs/reference default, not a core dependency.
+- pnpm workspace, strict TypeScript, Node 20+.
+- Next.js for the public documentation/catalog application.
+- React and framework-compatible source for installable UI items.
+- Versioned JSON registry metadata with runtime validation.
+- Vitest for unit and contract tests; governed visible-browser QA for public docs, examples, and components.
+- Changesets for scoped package releases.
 
-## Target package families
+## Package direction
 
-- `contracts`: manifests and compatibility.
-- `runtime`: execution, events, tools, approvals, budgets, replay.
-- `ui`: shell, chat, artifacts, connectors, approvals, observability.
-- `adapters-*`: model, durable state, auth, connector, and deployment choices.
-- `cli` / `create-agenty`: scaffold, doctor, eval, conformance, upgrades.
-- `evals`: fixtures, graders, regression and safety suites.
+- `@agents-sdk/cli` — `init`, `add`, `list`, `diff`, and `doctor`.
+- `@agents-sdk/core` — registry parsing, resolution, compatibility, and file-plan contracts.
+- `@agents-sdk/ui` — reusable source helpers only where package distribution is more honest than copy-installation.
+- Future namespaces such as `@agents-sdk/mcp`, `@agents-sdk/skills`, `@agents-sdk/patterns`, and `@agents-sdk/evals` require implemented demand and must not be created as empty branding.
 
-Provider APIs and framework versions must be checked against official documentation at implementation time. Product repos own auth, tenancy/RLS, database migrations, and deployment credentials.
+## Source-owned installation
+
+Registry items are copied into a consuming project with their source, tests, and local dependencies. The consuming developer can edit them directly. Package dependencies remain reserved for stable infrastructure that benefits from centralized upgrades.
+
+Framework and provider versions must be checked against official documentation when an integration is implemented. The consuming product owns auth, tenancy, database migrations, model credentials, and deployment configuration.

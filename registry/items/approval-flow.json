@@ -1,0 +1,55 @@
+{
+  "$schema": "../../schemas/registry-item.schema.json",
+  "schemaVersion": "agents-sdk.com/registry-item/v1",
+  "name": "approval-flow",
+  "type": "example",
+  "title": "Approval Flow",
+  "description": "A focused example that guards one write with an exact approval grant.",
+  "version": "0.1.0",
+  "maturity": "experimental",
+  "provenance": {
+    "source": "registry/sources/examples/approval-flow.ts",
+    "license": "MIT",
+    "reviewedAt": "2026-07-15"
+  },
+  "examples": [],
+  "compatibility": { "node": ">=20", "packages": {} },
+  "security": {
+    "notes": [
+      "Replace the example return value with transactional grant consumption and job enqueueing."
+    ]
+  },
+  "accessibility": {
+    "notes": ["Pair this server example with a decision surface that exposes action and impact."]
+  },
+  "registryDependencies": ["approval-gates"],
+  "dependencies": {},
+  "devDependencies": { "vitest": "^3.2.4" },
+  "files": [
+    {
+      "source": "sources/examples/approval-flow.ts",
+      "target": "examples/approval-flow.ts",
+      "role": "example"
+    },
+    {
+      "source": "sources/examples/approval-flow.test.ts",
+      "target": "examples/approval-flow.test.ts",
+      "role": "test"
+    },
+    {
+      "source": "sources/examples/approval-flow.md",
+      "target": "examples/approval-flow.md",
+      "role": "docs"
+    }
+  ],
+  "documentation": {
+    "path": "examples/approval-flow.md",
+    "whenToUse": "Use to understand the handoff between an approval grant and queued execution.",
+    "whenNotToUse": "Do not copy it as a persistence or authorization system without a transactional store.",
+    "tradeoffs": ["The example leaves transactional persistence to the host application."]
+  },
+  "test": {
+    "command": "vitest run examples/approval-flow.test.ts",
+    "paths": ["examples/approval-flow.test.ts"]
+  }
+}

@@ -6,7 +6,7 @@ import { runManifestAcceptance } from "../src/index.js";
 describe("manifest acceptance", () => {
   it("passes the agent app template", async () => {
     const here = path.dirname(fileURLToPath(import.meta.url));
-    const fixture = path.resolve(here, "../../../templates/agent-app/agenty.json");
+    const fixture = path.resolve(here, "../../../templates/support-agent/agent-project.json");
     const report = await runManifestAcceptance(fixture);
     expect(report.ok, JSON.stringify(report.checks)).toBe(true);
     expect(report.checks.every((check) => check.ok)).toBe(true);

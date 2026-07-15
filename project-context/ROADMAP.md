@@ -1,33 +1,25 @@
 # Roadmap
 
-The detailed delivery contract is `plan.md`; this view groups it into release horizons. Stage completion requires evidence in `ACCEPTANCE.md`, not merely the presence of code.
+The detailed delivery contract is `plan.md`. Completion requires evidence in `ACCEPTANCE.md`, not category pages or copy.
 
-## Horizon 0 — Foundation and proof inventory
+## v0.1 — Prove the component system
 
-- Finish Stage 1 repository/context/CI/release governance.
-- Audit current contract, CLI, harness, UI, schema, registry, and template slices against their claimed behavior.
-- Record validation evidence and close ownership/provenance gaps.
+- Launch the industrial-editorial agents-sdk.com homepage and documentation shell.
+- Publish a real registry contract and working source-owned install flow.
+- Ship `agent-chat`, `human-approval`, and `artifact-workspace` with runnable examples and complete docs.
+- Ship the `approval-gates` pattern and one complete support-agent template that uses the components.
+- Ship `@agents-sdk/cli` commands: `init`, `add`, `list`, `diff`, and `doctor`.
+- Verify install, conflict refusal, local customization/diff, tests, build, accessibility, and security boundaries from a clean directory.
 
-## Horizon 1 — Trustworthy developer core
+## v0.2 candidates — Evidence required
 
-- Complete Stage 2 versioned manifests and positive/negative fixtures.
-- Complete Stage 3 bounded runtime, approvals, durable events, cancellation, replay, budgets, and redaction.
-- Complete Stage 4 clean-directory application scaffold—not only manifest initialization.
+- First reusable agent and skill distributions.
+- First MCP server/client integration with explicit auth and tool-risk documentation.
+- Streaming/reasoning disclosure and tool-state variants informed by real adoption.
+- Evaluation and observability patterns tied to a working example.
 
-**Release candidate:** `0.1` only after contract compatibility and clean-clone CLI proof pass.
+## Later
 
-## Horizon 2 — Product-grade experience
+Memory/context systems, background jobs, queues, scheduled work, auth/team packages, broad provider integrations, deployment recipes, and additional product templates should enter only after production evidence identifies a repeated problem.
 
-- Complete Stage 5 responsive shell, typed streaming state, tools, approvals, connectors, and artifact lifecycle.
-- Complete Stage 6 eval/conformance reports and proposal-only learning ingestion.
-- Validate with one neutral reference and one BAMF-shaped adapter without importing client-private data.
-
-## Horizon 3 — Public framework and agency system
-
-- Complete Stage 7 public docs, examples, API/MCP reference, delivery playbooks, and open/private boundary.
-- Complete Stage 8 tagged second-machine proof, `agenty.so` release, rollback, and improvement cadence.
-- Evaluate `agenty.io` only after usefulness, adoption, and service economics have evidence.
-
-## Later, not assumed
-
-Hosted collaboration, managed runs, marketplace/distribution, and paid cloud services require separate product decisions. They are not hidden requirements of the first framework release.
+Hosted collaboration, managed runs, marketplaces, and paid cloud services are separate product decisions. Enterprise implementation may exist through BAMF without reshaping the open-source information architecture.
