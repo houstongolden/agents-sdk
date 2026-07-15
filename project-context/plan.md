@@ -76,9 +76,9 @@ Remaining work is intentionally external and release-specific: publish scoped pa
 
 ## Transition stabilization
 
-**Status:** collision cleanup complete; branch custody, durability, and You.md authority pending.
+**Status:** collision cleanup and ADIL branch disposition complete; durability and You.md authority pending.
 
-The old `agenty` path resolves to the canonical repository and requires no file copy. The recovered task history is indexed in the handoff audit. The 29 visible historical collision snapshots and six ignored generated collision artifacts were proven non-unique and removed, restoring a canonical raw working tree. Remaining transition work is to review the separate `codex/adil-contracts` worktree, establish remote/off-machine durability, and restore supported You.md write authority without bypassing its guards.
+The old `agenty` path resolves to the canonical repository and requires no file copy. The recovered task history is indexed in the handoff audit. The 29 visible historical collision snapshots and six ignored generated collision artifacts were proven non-unique and removed, restoring a canonical raw working tree. The separate ADIL branch was reviewed: its implementation was adapted as the private `@agents-sdk/intelligence-contracts` roadmap package, while its superseded Agenty ledgers and lockfile were excluded. Remaining transition work is to establish remote/off-machine durability and restore supported You.md write authority without bypassing its guards.
 
 ## Work loop
 

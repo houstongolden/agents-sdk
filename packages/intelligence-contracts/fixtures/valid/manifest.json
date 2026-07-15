@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "houston.dev/intelligence-manifest/v0.1",
+  "kind": "IntelligenceManifest",
+  "metadata": {
+    "id": "bamfai-intelligence",
+    "issuerId": "hg",
+    "app": "bamfai",
+    "environment": "test",
+    "version": "0.1.0",
+    "owner": "BAMF AI",
+    "generatedAt": "2026-07-15T00:00:00.000Z"
+  },
+  "resourceTypes": [
+    {
+      "key": "bamfai.media_asset",
+      "urnResourceType": "media.asset",
+      "app": "bamfai",
+      "source": {
+        "adapter": "postgres",
+        "schema": "public",
+        "table": "media_assets",
+        "primaryKey": "id",
+        "changeMode": "transactional"
+      },
+      "tenant": { "resolver": "user_owner", "field": "/user_id" },
+      "defaultPolicyRef": "workspace-private",
+      "lifecycle": "experimental",
+      "relations": ["uploaded_by", "visually_similar_to"],
+      "deletion": "cascade_derived",
+      "manifestVersion": "2026-07-15.1",
+      "owner": "BAMF AI"
+    }
+  ],
+  "fieldDefinitions": [
+    {
+      "resourceType": "bamfai.media_asset",
+      "fieldPath": "/file",
+      "semanticType": "media.image",
+      "aliases": ["photo", "upload"],
+      "sensitivity": "workspace_private",
+      "index": ["lexical", "semantic"],
+      "pipeline": "image-v1",
+      "modelPolicy": "allowed_cloud",
+      "excluded": false
+    },
+    {
+      "resourceType": "bamfai.media_asset",
+      "fieldPath": "/access_token",
+      "semanticType": "security.credential",
+      "aliases": [],
+      "sensitivity": "prohibited_from_ai",
+      "index": [],
+      "modelPolicy": "no_ai",
+      "excluded": true
+    }
+  ],
+  "policies": [
+    {
+      "schemaVersion": "houston.dev/intelligence/v0.1",
+      "id": "workspace-private",
+      "version": "1",
+      "sensitivity": "workspace_private",
+      "accessResolver": "app-rls",
+      "modelPolicy": "allowed_cloud",
+      "allowedPurposes": ["user-search"],
+      "consent": "not_required",
+      "retention": { "legalHoldAware": true },
+      "deletionBehavior": "tombstone_then_purge"
+    }
+  ]
+}

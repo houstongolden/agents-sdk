@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "houston.dev/intelligence/v0.1",
+  "urn": "urn:agents-sdk:contains:too:few:parts",
+  "resourceType": "BAD TYPE",
+  "source": { "adapter": "postgres", "nativeId": "1" }
+}

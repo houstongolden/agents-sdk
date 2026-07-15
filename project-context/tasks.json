@@ -1,7 +1,7 @@
 {
   "$schema": "you-md/tasks/v1",
   "project": "agents-sdk",
-  "updatedAt": "2026-07-15T23:00:00.000Z",
+  "updatedAt": "2026-07-15T23:40:00.000Z",
   "tasks": [
     {
       "id": "t-sdk-001",
@@ -278,13 +278,21 @@
       "description": "Review codex/adil-contracts against current Agents SDK contracts and explicitly adapt, rebase, merge, archive, or reject its changes.",
       "successCriteria": "Every unique ADIL contract is dispositioned with evidence and the linked worktree can be retained or removed deliberately.",
       "dependencyIds": ["t-sdk-011"],
-      "status": "open",
+      "evidence": [
+        "project-context/audits/2026-07-15-full-project-handoff/11-ADIL-BRANCH-DISPOSITION.md",
+        "packages/intelligence-contracts/",
+        "schemas/intelligence/",
+        "19 focused tests",
+        "pnpm validate"
+      ],
+      "status": "done",
       "priority": "high",
       "owner": "agent",
       "tags": ["sdk", "handoff", "contracts", "high"],
       "source": "project-context/audits/2026-07-15-full-project-handoff/08-PATH-MIGRATION-AND-CODE-CUSTODY.md",
       "createdAt": "2026-07-15T23:00:00.000Z",
-      "updatedAt": "2026-07-15T23:00:00.000Z"
+      "updatedAt": "2026-07-15T23:40:00.000Z",
+      "completedAt": "2026-07-15T23:40:00.000Z"
     },
     {
       "id": "t-sdk-013",

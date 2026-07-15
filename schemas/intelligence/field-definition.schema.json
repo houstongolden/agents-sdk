@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "resourceType": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+    "fieldPath": { "type": "string", "pattern": "^(?:\\/(?:[^~/]|~[01])*)*$" },
+    "semanticType": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+    "aliases": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "sensitivity": {
+      "type": "string",
+      "enum": [
+        "public",
+        "workspace_private",
+        "client_confidential",
+        "restricted",
+        "prohibited_from_ai"
+      ]
+    },
+    "index": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["exact", "lexical", "semantic", "faceted", "relationship"]
+      }
+    },
+    "pipeline": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+    "retentionDays": { "type": "integer", "exclusiveMinimum": 0, "maximum": 9007199254740991 },
+    "modelPolicy": {
+      "type": "string",
+      "enum": ["local_only", "redacted_cloud", "allowed_cloud", "no_ai"]
+    },
+    "excluded": { "default": false, "type": "boolean" }
+  },
+  "required": [
+    "resourceType",
+    "fieldPath",
+    "semanticType",
+    "aliases",
+    "sensitivity",
+    "index",
+    "modelPolicy",
+    "excluded"
+  ],
+  "additionalProperties": false
+}

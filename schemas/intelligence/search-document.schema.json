@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "houston.dev/intelligence/v0.1" },
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" },
+    "resourceUrn": {
+      "type": "string",
+      "pattern": "^urn:agents-sdk:([a-z][a-z0-9-]{0,62}):([a-z][a-z0-9-]{0,62}):([a-z][a-z0-9-]{0,62}):([a-z][a-z0-9._-]{1,127}):([A-Za-z0-9][A-Za-z0-9._~-]{0,127})$"
+    },
+    "fragmentId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" },
+    "enrichmentIds": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" }
+    },
+    "lexicalText": { "type": "string" },
+    "facets": {
+      "type": "object",
+      "propertyNames": { "type": "string" },
+      "additionalProperties": { "$ref": "#/$defs/__schema0" }
+    },
+    "embeddingId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" },
+    "sourceVersion": { "type": "string", "minLength": 1 },
+    "policyVersion": { "type": "string", "minLength": 1 },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+    },
+    "state": { "type": "string", "enum": ["active", "superseded", "tombstoned", "purged", "error"] }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "resourceUrn",
+    "enrichmentIds",
+    "lexicalText",
+    "facets",
+    "sourceVersion",
+    "policyVersion",
+    "publishedAt",
+    "state"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" },
+        { "type": "null" },
+        { "type": "array", "items": { "$ref": "#/$defs/__schema0" } },
+        {
+          "type": "object",
+          "propertyNames": { "type": "string" },
+          "additionalProperties": { "$ref": "#/$defs/__schema0" }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "query": { "type": "string", "minLength": 1, "maxLength": 4000 },
+    "actor": {
+      "type": "object",
+      "properties": {
+        "actorId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" },
+        "app": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+        "audience": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+        "tenantId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" },
+        "workspaceId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" },
+        "clientId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._~-]{0,127}$" },
+        "scopes": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      },
+      "required": ["actorId", "app", "audience", "tenantId", "scopes"],
+      "additionalProperties": false
+    },
+    "resourceTypes": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" }
+    },
+    "modalities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["text", "image", "document", "audio", "video", "structured_data", "mixed"]
+      }
+    },
+    "exactFilters": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "fieldPath": { "type": "string", "pattern": "^(?:\\/(?:[^~/]|~[01])*)*$" },
+              "operator": {
+                "type": "string",
+                "enum": ["eq", "neq", "in", "contains", "gte", "lte"]
+              },
+              "value": { "$ref": "#/$defs/__schema0" }
+            },
+            "required": ["fieldPath", "operator", "value"],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "fieldPath": { "type": "string", "pattern": "^(?:\\/(?:[^~/]|~[01])*)*$" },
+              "operator": { "type": "string", "const": "exists" }
+            },
+            "required": ["fieldPath", "operator"],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "dateRange": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+        },
+        "to": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+          "targetUrn": {
+            "type": "string",
+            "pattern": "^urn:agents-sdk:([a-z][a-z0-9-]{0,62}):([a-z][a-z0-9-]{0,62}):([a-z][a-z0-9-]{0,62}):([a-z][a-z0-9._-]{1,127}):([A-Za-z0-9][A-Za-z0-9._~-]{0,127})$"
+          },
+          "maxHops": { "default": 1, "type": "integer", "minimum": 1, "maximum": 3 }
+        },
+        "required": ["type", "maxHops"],
+        "additionalProperties": false
+      }
+    },
+    "sensitivityCeiling": {
+      "type": "string",
+      "enum": [
+        "public",
+        "workspace_private",
+        "client_confidential",
+        "restricted",
+        "prohibited_from_ai"
+      ]
+    },
+    "purpose": { "type": "string", "pattern": "^[a-z][a-z0-9._-]{1,127}$" },
+    "topK": { "default": 20, "type": "integer", "minimum": 1, "maximum": 100 },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "required": { "type": "boolean" },
+        "minimumCitations": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "includeScoreBreakdown": { "type": "boolean" }
+      },
+      "required": ["required", "minimumCitations", "includeScoreBreakdown"],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "query",
+    "actor",
+    "resourceTypes",
+    "modalities",
+    "exactFilters",
+    "relationships",
+    "sensitivityCeiling",
+    "purpose",
+    "topK",
+    "evidence"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" },
+        { "type": "null" },
+        { "type": "array", "items": { "$ref": "#/$defs/__schema0" } },
+        {
+          "type": "object",
+          "propertyNames": { "type": "string" },
+          "additionalProperties": { "$ref": "#/$defs/__schema0" }
+        }
+      ]
+    }
+  }
+}

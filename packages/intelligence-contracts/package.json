@@ -1,0 +1,50 @@
+{
+  "name": "@agents-sdk/intelligence-contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Provider-neutral Agentic Data Intelligence Layer contracts and conformance utilities.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agents-sdk/agents-sdk.git",
+    "directory": "packages/intelligence-contracts"
+  },
+  "homepage": "https://agents-sdk.com",
+  "bugs": {
+    "url": "https://github.com/agents-sdk/agents-sdk/issues"
+  },
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/generate-json-schemas.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}

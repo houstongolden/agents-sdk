@@ -15,6 +15,7 @@
 - The docs/catalog site contains 23 generated pages and passes desktop/mobile browser QA.
 - `AgentsSDKStack` is synchronized into the shared stack map while `~/.agent-shared` and You.md retain their canonical ownership boundaries.
 - Original source prompts and cross-project provenance remain preserved.
+- The reviewed ADIL branch implementation is preserved as the private `@agents-sdk/intelligence-contracts` roadmap package with 47 generated JSON Schemas and 19 focused tests. It is not a public registry item or v0.1 acceptance claim.
 - The dated [full project handoff audit](audits/2026-07-15-full-project-handoff/00-README.md) records the build/refocus/rename thread, documentation and code inventories, decision/status map, risks, and next work without replacing canonical project context.
 - Canonical Agents SDK code passes the full repository gate. The 29 visible `* 2.*` historical collision files and six ignored generated collision artifacts were audited, proven non-unique, and removed; raw-tree validation no longer requires quarantine.
 

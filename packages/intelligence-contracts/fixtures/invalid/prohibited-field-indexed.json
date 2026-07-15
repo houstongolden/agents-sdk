@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "houston.dev/intelligence-manifest/v0.1",
+  "kind": "IntelligenceManifest",
+  "metadata": {
+    "id": "invalid-intelligence",
+    "issuerId": "hg",
+    "app": "bamfai",
+    "environment": "test",
+    "version": "0.1.0",
+    "owner": "Test",
+    "generatedAt": "2026-07-15T00:00:00.000Z"
+  },
+  "resourceTypes": [
+    {
+      "key": "bamfai.secret_record",
+      "urnResourceType": "secret.record",
+      "app": "bamfai",
+      "source": {
+        "adapter": "postgres",
+        "table": "secret_records",
+        "primaryKey": "id",
+        "changeMode": "transactional"
+      },
+      "tenant": { "resolver": "user_owner", "field": "/user_id" },
+      "defaultPolicyRef": "restricted",
+      "lifecycle": "experimental",
+      "relations": [],
+      "deletion": "cascade_derived",
+      "manifestVersion": "1",
+      "owner": "Test"
+    }
+  ],
+  "fieldDefinitions": [
+    {
+      "resourceType": "bamfai.secret_record",
+      "fieldPath": "/api_token",
+      "semanticType": "security.credential",
+      "aliases": [],
+      "sensitivity": "prohibited_from_ai",
+      "index": ["semantic"],
+      "pipeline": "text-v1",
+      "modelPolicy": "no_ai",
+      "excluded": false
+    }
+  ],
+  "policies": [
+    {
+      "schemaVersion": "houston.dev/intelligence/v0.1",
+      "id": "restricted",
+      "version": "1",
+      "sensitivity": "restricted",
+      "accessResolver": "app-rls",
+      "modelPolicy": "local_only",
+      "allowedPurposes": ["security-audit"],
+      "consent": "required",
+      "retention": { "legalHoldAware": true },
+      "deletionBehavior": "tombstone_then_purge"
+    }
+  ]
+}
