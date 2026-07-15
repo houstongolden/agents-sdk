@@ -313,10 +313,15 @@
       "title": "Restore supported You.md write authority",
       "description": "Re-register the lowercase Agents SDK checkout through the supported You.md project flow and verify local/remote task projection without bypassing authority guards.",
       "successCriteria": "The canonical checkout has a valid descriptor and authorized task/context writes succeed through supported You.md tooling.",
+      "blockers": [
+        "youmd brain adopt reports applyAvailable: false",
+        "the proposed v1 descriptor has taskWrite.enabled: false",
+        "supported task mutation returns TASKS_WRITE_NOT_GRANTED"
+      ],
       "status": "open",
-      "priority": "medium",
+      "priority": "normal",
       "owner": "agent",
-      "tags": ["sdk", "handoff", "you-md", "medium"],
+      "tags": ["sdk", "handoff", "you-md", "normal"],
       "source": "project-context/CURRENT_STATE.md",
       "createdAt": "2026-07-15T23:00:00.000Z",
       "updatedAt": "2026-07-15T23:00:00.000Z"

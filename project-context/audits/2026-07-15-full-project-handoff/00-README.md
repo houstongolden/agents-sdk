@@ -75,6 +75,7 @@ Read these files as one numbered handoff:
 | [09-REPOSITORY-FILE-MANIFEST.md](09-REPOSITORY-FILE-MANIFEST.md)                             | Exact repository file manifest and classification                                        | Expected companion artifact |
 | [10-CONTEXT-RECOVERY-AND-COLLISION-CLOSURE.md](10-CONTEXT-RECOVERY-AND-COLLISION-CLOSURE.md) | Recovered task audit, missing-ledger closure, and collision-file custody                 | Present                     |
 | [11-ADIL-BRANCH-DISPOSITION.md](11-ADIL-BRANCH-DISPOSITION.md)                               | Review and bounded adaptation of the linked ADIL contract branch                         | Present                     |
+| [12-YOUMD-REGISTRATION-AUTHORITY.md](12-YOUMD-REGISTRATION-AUTHORITY.md)                     | Supported registration result and remaining task-write authority blocker                 | Present                     |
 
 “Expected” means another audit lane may still be creating the file. A missing companion is an incomplete handoff condition, not evidence that the underlying project work is absent.
 

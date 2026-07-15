@@ -25,12 +25,13 @@
       blockers: @agents-sdk packages are not published | agents-sdk.com is not serving the release | npm namespace/domain/GitHub organization ownership is not proven
       Publish the scoped packages and accepted site only after external ownership and public release gates pass.
 - [ ] Establish remote and off-machine repository durability <!-- id:t-sdk-013 -->
-      open · high · Houston · #human-gate #handoff #durability #high
+      open · high · #human-gate #handoff #durability #high
       success: Main and any retained branch have verified off-machine custody without exposing secrets or private material.
       Configure an approved remote or backup route and prove the committed repository and unmerged branch are recoverable off-machine.
 - [ ] Restore supported You.md write authority <!-- id:t-sdk-014 -->
-      open · medium · #sdk #handoff #you-md #medium
+      open · agent · #sdk #handoff #you-md #normal
       success: The canonical checkout has a valid descriptor and authorized task/context writes succeed through supported You.md tooling.
+      blockers: youmd brain adopt reports applyAvailable: false | the proposed v1 descriptor has taskWrite.enabled: false | supported task mutation returns TASKS_WRITE_NOT_GRANTED
       Re-register the lowercase Agents SDK checkout through the supported You.md project flow and verify local/remote task projection without bypassing authority guards.
 
 ## Done (11)

@@ -33,7 +33,7 @@
 - Repository continuity: the renamed lowercase path resolves the existing Git history and linked worktrees; the old `agenty` path resolves only through the compatibility symlink.
 - Documentation continuity: the [2026-07-15 full handoff package](audits/2026-07-15-full-project-handoff/00-README.md) is complete and `git diff --check` passes for its authored Markdown files.
 - You.md integration: the local Brain scan is ready under the stable local `project:agenty` reference with Agents SDK as the display identity; the strict 13-task ledger and T1 YouStack doctor pass. Remote Brain/task projection remains blocked because the current credential lacks `write:brain`; no upload was performed.
-- You.md local write authority after the rename: `youmd tasks add ... --no-sync` was rejected with `TASKS_WRITE_NOT_GRANTED` because the renamed checkout does not currently have a valid `.you-project` descriptor. No task file was changed or guard bypassed; the existing 13-task `tasks.json` remains canonical until the supported project registration grants local write authority.
+- You.md registration after the rename: `you project init agents-sdk` created local `.youmd/projects/agents-sdk` metadata and project logging works. The legacy marker it emitted failed the v1 Brain descriptor authority contract and was removed. `youmd brain adopt` produced a fresh exact descriptor proposal but reported `applyAvailable: false` with `taskWrite.enabled: false`; task mutation remains correctly blocked by `TASKS_WRITE_NOT_GRANTED`. The 17-task ledger validates deterministically, and no authority guard was bypassed.
 
 ## A8 remains pending
 
