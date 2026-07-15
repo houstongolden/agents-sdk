@@ -6,7 +6,7 @@
 
 ## Current release state
 
-The previous Agenty direction remains superseded. The Agents SDK product reset and local v0.1 implementation now pass A1–A7, including repository validation, docs/catalog browser QA, and a clean-room support-agent install/test/typecheck/build proof. Public release evidence remains A8 work.
+The previous Agenty direction remains superseded. The Agents SDK product reset and local v0.1 implementation now pass A1–A7, including repository validation, docs/catalog browser QA, and a clean-room support-agent install/test/typecheck/build proof. The canonical repository path is `/Users/houstongolden/Desktop/CODE_2025/agents-sdk`; the prior `agenty` path is a temporary compatibility symlink only. The dated [full project handoff audit](audits/2026-07-15-full-project-handoff/00-README.md) preserves documentation and implementation continuity. Public release evidence remains A8 work.
 
 ## Phase 1 — Identity, scope, and information architecture
 
@@ -55,6 +55,14 @@ Ship the `approval-gates` architecture pattern with named failure paths, then bu
 Complete quickstart, registry authoring, contribution, compatibility, security, accessibility, customization, and upgrade/diff guidance. Run the flow with a fresh contributor perspective.
 
 **Exit:** A7 passes with no generic filler or empty pages presented as product.
+
+## Documentation continuity and handoff milestone
+
+**Status:** complete 2026-07-15.
+
+Rename the physical repository identity to lowercase `agents-sdk` without losing the active Codex task, Git history, linked worktrees, project context, or provenance. Preserve the old `agenty` path only as a compatibility symlink. Produce a comprehensive, dated, source-linked handoff package covering the thread/work log, prompt history, documentation and code inventories, decisions/status/source-of-truth hierarchy, risks, gaps, and next actions.
+
+**Exit:** D-013 is recorded; canonical context links to the [2026-07-15 handoff audit](audits/2026-07-15-full-project-handoff/00-README.md); the exact rename and audit prompts remain in `prompts.md`; Phase 7/A8 remains pending rather than being inferred complete from documentation work.
 
 ## Phase 7 — Release proof
 

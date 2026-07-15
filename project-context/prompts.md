@@ -75,3 +75,35 @@ The intended package family begins with `@agents-sdk/cli`, `@agents-sdk/core`, a
 ### Product reset instruction
 
 Do not incrementally polish the former interpretation. Audit it, preserve useful tested primitives and provenance, then rebuild the direction around Agents SDK and agents-sdk.com.
+
+## 2026-07-15 — Rename the project directory without losing Codex context
+
+**Author:** Houston Golden
+
+**Source:** Codex desktop, active Agents SDK build/refocus task opened under the former Agenty path
+
+**Intent:** Make Agents SDK the durable project directory while preserving the current task, project context, and Git continuity
+
+**Status:** Completed. The canonical lowercase physical repository path is `/Users/houstongolden/Desktop/CODE_2025/agents-sdk`; `/Users/houstongolden/Desktop/CODE_2025/agenty` remains a compatibility symlink for the already-open task and is not a second checkout.
+
+> How can I actually rename this directory from agenty to agents-SDK without it creating too many issues in the codex project? Will it detect that we just renamed the project, the directory, or what's the easiest way to do it? Can you just do that for me so that we can have the agenty directory renamed to the agents-SDK directory without losing the project context of this session that we were just working on already?
+
+### Outcome interpretation
+
+The request authorized an in-place filesystem identity migration, not a fresh repository or loss of the open Codex task. Git history and linked worktree metadata remain attached to the same repository. New documentation and tools use the lowercase `agents-sdk` spelling; the symlink can be retired after Codex and dependent integrations are re-registered and verified.
+
+## 2026-07-15 — Produce a complete project and thread handoff audit
+
+**Author:** Houston Golden
+
+**Source:** Codex desktop, active Agents SDK rename/handoff task
+
+**Intent:** Preserve the full working context, content, code directory, documentation, actions, decisions, status, and next work in the canonical project
+
+**Status:** Completed as the dated [full project handoff audit](audits/2026-07-15-full-project-handoff/00-README.md). The result uses one canonical physical repository rather than creating a divergent duplicate checkout.
+
+> generate full robust comprehensive exhaustive complete audit and directory of docs and markdown etc and everything for the full context and content and work of this whole chat and full working log of everything you've done including everything possible and all code too and duplicate it all into the new agents-sdk project directory which is where this whole project is going to live now
+
+### Outcome interpretation
+
+All code already physically resides under `agents-sdk` because the repository was renamed in place. The audit inventories and links the complete source tree instead of copying a second codebase inside itself. It preserves exact user prompts and an evidence-backed action log, while excluding secrets and private chain-of-thought. Canonical project files remain authoritative; the dated audit is a continuity and review artifact.

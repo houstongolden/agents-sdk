@@ -7,6 +7,7 @@
 ## What is true
 
 - The active product is Agents SDK at agents-sdk.com.
+- The canonical lowercase physical repository path is `/Users/houstongolden/Desktop/CODE_2025/agents-sdk`. `/Users/houstongolden/Desktop/CODE_2025/agenty` is a compatibility symlink into that repository for already-open Codex context; it is not a second checkout or active product identity.
 - Acceptance gates A1–A7 pass locally.
 - The positioning, eight-area information architecture, industrial-editorial design system, ownership model, plan, and acceptance contract are implemented and documented.
 - The versioned registry includes the three v0.1 components, approval pattern, focused examples, and complete support-agent template.
@@ -14,17 +15,25 @@
 - The docs/catalog site contains 23 generated pages and passes desktop/mobile browser QA.
 - `AgentsSDKStack` is synchronized into the shared stack map while `~/.agent-shared` and You.md retain their canonical ownership boundaries.
 - Original source prompts and cross-project provenance remain preserved.
+- The dated [full project handoff audit](audits/2026-07-15-full-project-handoff/00-README.md) records the build/refocus/rename thread, documentation and code inventories, decision/status map, risks, and next work without replacing canonical project context.
+- Canonical tracked Agents SDK code passes the full repository gate. The unresolved untracked `* 2.*` historical collision files make an unquarantined validation of the raw dirty tree fail because `packages/cli/src/index 2.ts` still imports superseded `@agenty/core`.
 
 ## Verified evidence
 
-- `pnpm validate`: pass. Core 10 tests, UI 5, CLI 22, harness 1, site 14; 23 site pages generated.
+- Targeted audit formatting: the initial Prettier pass found eight audit Markdown files and formatted all eight.
+- Collision-aware `pnpm validate`: pass after a trap-protected command temporarily moved exactly 29 `* 2.*` collision files out of executable source locations. Core 10 tests, UI 5, CLI 22, harness 1, site 14; build, typecheck, all 52 tests, lint, formatting, and the 23-page production build passed.
+- Collision restoration: all 29 historical files were restored byte-for-byte after validation; the compatibility link remained `agenty -> agents-sdk`, and the linked `codex/adil-contracts` worktree remained healthy.
+- Raw dirty-tree gate: expected fail while collisions remain unresolved. Unquarantined `pnpm validate` loads `packages/cli/src/index 2.ts`, whose historical `@agenty/core` import is no longer part of the canonical package graph.
 - API documentation guard, repository diff check, JSON parsing, and secret scans: pass.
 - Browser QA: desktop, mobile, overflow, console, approval interaction, navigation menu, and primary CTA: pass.
 - Clean-room compiled CLI: `init`, `add support-agent`, `diff`, and `doctor`: pass.
 - Clean-room installed support-agent: dependency install, 11 tests, typecheck, and production build: pass.
 - Package dry-runs: pass.
 - Shared `AgentsSDKStack` synchronization: pass.
-- You.md integration: the local Brain scan is ready under stable physical `project:agenty` with Agents SDK as the display identity; the strict 13-task ledger and T1 YouStack doctor pass. Remote Brain/task projection remains blocked because the current credential lacks `write:brain`; no upload was performed.
+- Repository continuity: the renamed lowercase path resolves the existing Git history and linked worktrees; the old `agenty` path resolves only through the compatibility symlink.
+- Documentation continuity: the [2026-07-15 full handoff package](audits/2026-07-15-full-project-handoff/00-README.md) is complete and `git diff --check` passes for its authored Markdown files.
+- You.md integration: the local Brain scan is ready under the stable local `project:agenty` reference with Agents SDK as the display identity; the strict 13-task ledger and T1 YouStack doctor pass. Remote Brain/task projection remains blocked because the current credential lacks `write:brain`; no upload was performed.
+- You.md local write authority after the rename: `youmd tasks add ... --no-sync` was rejected with `TASKS_WRITE_NOT_GRANTED` because the renamed checkout does not currently have a valid `.you-project` descriptor. No task file was changed or guard bypassed; the existing 13-task `tasks.json` remains canonical until the supported project registration grants local write authority.
 
 ## A8 remains pending
 

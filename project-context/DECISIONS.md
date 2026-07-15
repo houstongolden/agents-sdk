@@ -28,6 +28,10 @@ Use “Built by BAMF” and one restrained Enterprise/custom-development path. D
 
 Cross-project learning can create attributed proposals. Promotion requires privacy classification, generalization, tests, docs, and review. **Carried forward.**
 
+## D-013 — `agents-sdk` is the canonical filesystem identity
+
+The canonical lowercase physical repository path is `/Users/houstongolden/Desktop/CODE_2025/agents-sdk`. The prior `/Users/houstongolden/Desktop/CODE_2025/agenty` path is compatibility-only: it may remain temporarily as a symlink so already-open Codex tasks and stale local references continue resolving, but it is not a second checkout, current product identity, or path for new documentation and tooling. Retire the symlink only after the canonical path is registered in Codex and dependent integrations have been verified. Historical `agenty` prompt, Git, and You.md references remain provenance rather than active filesystem policy. **Accepted 2026-07-15.**
+
 ## Superseded decisions
 
 D-001 through D-005 described Agenty as a productization/conformance layer plus agency service and gated an `agenty.io` purchase. Those decisions are superseded by D-006 through D-011. Their source prompt remains in `prompts.md`.
