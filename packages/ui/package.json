@@ -1,8 +1,23 @@
 {
-  "name": "@agenty/ui",
+  "name": "@agents-sdk/ui",
   "version": "0.1.0",
-  "private": true,
-  "description": "Adapter-light React primitives for Houston-style agentic applications.",
+  "description": "Adapter-light React primitives for inspectable agent applications.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agents-sdk/agents-sdk.git",
+    "directory": "packages/ui"
+  },
+  "homepage": "https://agents-sdk.com",
+  "bugs": {
+    "url": "https://github.com/agents-sdk/agents-sdk/issues"
+  },
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",

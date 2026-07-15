@@ -1,8 +1,23 @@
 {
-  "name": "@agenty/core",
+  "name": "@agents-sdk/core",
   "version": "0.1.0",
-  "private": true,
-  "description": "Runtime-neutral Agenty project contracts and validation.",
+  "description": "Registry, installation, and safety contracts for Agents SDK.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agents-sdk/agents-sdk.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://agents-sdk.com",
+  "bugs": {
+    "url": "https://github.com/agents-sdk/agents-sdk/issues"
+  },
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",

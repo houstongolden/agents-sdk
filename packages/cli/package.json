@@ -1,16 +1,33 @@
 {
-  "name": "@agenty/cli",
+  "name": "@agents-sdk/cli",
   "version": "0.1.0",
-  "private": true,
-  "description": "Agenty manifest initialization and diagnostics CLI.",
+  "description": "Copy-owned component installer for Agents SDK.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agents-sdk/agents-sdk.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://agents-sdk.com",
+  "bugs": {
+    "url": "https://github.com/agents-sdk/agents-sdk/issues"
+  },
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "bin": {
-    "agenty": "./dist/bin.js"
+    "agents": "./dist/bin.js",
+    "agents-sdk": "./dist/bin.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "registry"
   ],
   "exports": {
     ".": {
@@ -20,15 +37,21 @@
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "test": "vitest run",
+    "build": "tsc -p tsconfig.build.json && node scripts/prepare-assets.mjs",
+    "test": "node scripts/prepare-assets.mjs && vitest run",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@agenty/core": "workspace:*"
+    "@agents-sdk/core": "workspace:*"
   },
   "devDependencies": {
+    "@agents-sdk/ui": "workspace:*",
     "@types/node": "^22.15.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "lucide-react": "^1.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"
   }

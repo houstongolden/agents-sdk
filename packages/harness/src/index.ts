@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { validateAgentProject } from "@agenty/core";
+import { validateAgentProject } from "@agents-sdk/core";
 
 export interface AcceptanceCheck {
   id: string;
@@ -46,7 +46,7 @@ export async function runManifestAcceptance(fixturePath: string): Promise<Accept
   const checks: AcceptanceCheck[] = [
     {
       id: "manifest-v1",
-      ok: manifest.schemaVersion === "agenty.dev/agent-project/v1",
+      ok: manifest.schemaVersion === "agents-sdk.com/agent-project/v1",
       message: "Uses the supported manifest contract",
     },
     {

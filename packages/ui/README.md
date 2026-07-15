@@ -1,4 +1,4 @@
-# `@agenty/ui`
+# `@agents-sdk/ui`
 
 Adapter-light React, Tailwind, and `lucide-react` primitives for agentic product
 shells. The package deliberately owns no router, auth provider, chat runtime,
@@ -12,7 +12,7 @@ and starter configuration originate from Houston Golden's shared
 
 `~/.agent-shared/claude-skills/agentic-app-shell/templates/starter-package/`
 
-Agenty adds the reusable `AppShell`, `RightPane`, versioned `ArtifactSpec`,
+Agents SDK adds `AgentChat`, `HumanApproval`, `ArtifactWorkspace`, the reusable `AppShell`, `RightPane`, versioned `ArtifactSpec`,
 tolerant `ArtifactRenderer`, and `DemoAgenticSurface` proof surface. The shared
 skill remains the upstream design-standard source; this package is the
 versioned product/repository distribution.
@@ -37,7 +37,7 @@ import {
   RightPane,
   Sidebar,
   parseArtifactSpec,
-} from "@agenty/ui";
+} from "@agents-sdk/ui";
 ```
 
 `DemoAgenticSurface` is an in-memory integration example, not a production chat

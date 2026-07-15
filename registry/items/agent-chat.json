@@ -1,0 +1,59 @@
+{
+  "$schema": "../../schemas/registry-item.schema.json",
+  "schemaVersion": "agents-sdk.com/registry-item/v1",
+  "name": "agent-chat",
+  "type": "component",
+  "title": "Agent Chat",
+  "description": "Typed text, reasoning, and tool-call rendering with explicit streaming state.",
+  "version": "0.1.0",
+  "maturity": "preview",
+  "provenance": {
+    "source": "packages/ui/src/AgentChat.tsx",
+    "license": "MIT",
+    "reviewedAt": "2026-07-15"
+  },
+  "examples": ["support-agent"],
+  "compatibility": { "node": ">=20", "react": ">=18", "packages": {} },
+  "security": {
+    "notes": [
+      "Rendered message content is host-owned; sanitize any HTML or markdown renderer you add."
+    ]
+  },
+  "accessibility": {
+    "notes": [
+      "The conversation landmark has a configurable label and the host composer owns keyboard behavior."
+    ]
+  },
+  "registryDependencies": [],
+  "dependencies": { "react": "^19.0.0", "react-dom": "^19.0.0" },
+  "devDependencies": { "vitest": "^3.2.4" },
+  "files": [
+    {
+      "source": "sources/components/agent-chat.tsx",
+      "target": "components/agent-chat.tsx",
+      "role": "source"
+    },
+    {
+      "source": "sources/components/agent-chat.test.tsx",
+      "target": "components/agent-chat.test.tsx",
+      "role": "test"
+    },
+    {
+      "source": "sources/components/agent-chat.md",
+      "target": "components/agent-chat.md",
+      "role": "docs"
+    }
+  ],
+  "documentation": {
+    "path": "components/agent-chat.md",
+    "whenToUse": "Use when a chat runtime already exposes typed message parts.",
+    "whenNotToUse": "Do not use it as transport, persistence, authorization, or tool-state infrastructure.",
+    "tradeoffs": [
+      "Transport, persistence, markdown, and tool-specific rendering remain application-owned."
+    ]
+  },
+  "test": {
+    "command": "vitest run components/agent-chat.test.tsx",
+    "paths": ["components/agent-chat.test.tsx"]
+  }
+}

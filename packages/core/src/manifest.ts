@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const AGENT_PROJECT_SCHEMA_VERSION = "agenty.dev/agent-project/v1" as const;
+export const AGENT_PROJECT_SCHEMA_VERSION = "agents-sdk.com/agent-project/v1" as const;
 
 const IdSchema = z.string().regex(/^[a-z][a-z0-9-]{1,62}$/, "Use a lowercase kebab-case id");
 const SemverSchema = z

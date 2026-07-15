@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agents-sdk.com/schemas/config/v1.json",
+  "title": "Agents SDK install configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "registry", "paths", "installed"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": "agents-sdk.com/config/v1" },
+    "registry": { "type": "string", "minLength": 1 },
+    "paths": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["components", "patterns", "examples"],
+      "properties": {
+        "components": { "$ref": "#/$defs/relativePath" },
+        "patterns": { "$ref": "#/$defs/relativePath" },
+        "examples": { "$ref": "#/$defs/relativePath" }
+      }
+    },
+    "installed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "version", "dependencies", "devDependencies", "files"],
+        "properties": {
+          "name": { "$ref": "#/$defs/name" },
+          "version": { "type": "string", "minLength": 1 },
+          "dependencies": { "$ref": "#/$defs/packageMap" },
+          "devDependencies": { "$ref": "#/$defs/packageMap" },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["path", "sha256"],
+              "properties": {
+                "path": { "$ref": "#/$defs/relativePath" },
+                "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "name": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,62}$" },
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?![A-Za-z]:[\\\\/])(?![\\\\/])(?!.*(^|[\\\\/])\\.\\.([\\\\/]|$)).+$"
+    },
+    "packageMap": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    }
+  }
+}

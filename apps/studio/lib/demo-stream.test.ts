@@ -19,9 +19,9 @@ describe("local demo stream", () => {
     );
 
     expect(result.status).toBe("complete");
-    expect(result.artifact?.schemaVersion).toBe("agenty.artifact/v1");
-    expect(result.response).toContain("reference build is ready");
-    expect(result.response).not.toContain(result.artifact?.title ?? "Reference agent build");
+    expect(result.artifact?.schemaVersion).toBe("agents-sdk.artifact/v1");
+    expect(result.response).toContain("deterministic preview is ready");
+    expect(result.response).not.toContain(result.artifact?.title ?? "Fixture agent output");
   });
 
   it("updates tool calls by stable call id", () => {

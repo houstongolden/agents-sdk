@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 import { fileURLToPath } from "node:url";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@agenty/ui"],
+  transpilePackages: ["@agents-sdk/ui"],
   turbopack: {
     root: fileURLToPath(new URL("../..", import.meta.url)),
   },

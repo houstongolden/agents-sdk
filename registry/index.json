@@ -1,0 +1,13 @@
+{
+  "$schema": "../schemas/registry-index.schema.json",
+  "schemaVersion": "agents-sdk.com/registry-index/v1",
+  "items": [
+    { "name": "agent-chat", "type": "component", "path": "items/agent-chat.json" },
+    { "name": "human-approval", "type": "component", "path": "items/human-approval.json" },
+    { "name": "artifact-workspace", "type": "component", "path": "items/artifact-workspace.json" },
+    { "name": "approval-gates", "type": "pattern", "path": "items/approval-gates.json" },
+    { "name": "support-agent", "type": "template", "path": "items/support-agent.json" },
+    { "name": "approval-flow", "type": "example", "path": "items/approval-flow.json" },
+    { "name": "artifact-flow", "type": "example", "path": "items/artifact-flow.json" }
+  ]
+}

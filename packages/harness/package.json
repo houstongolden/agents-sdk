@@ -1,8 +1,21 @@
 {
-  "name": "@agenty/harness",
+  "name": "@agents-sdk/harness",
   "version": "0.1.0",
   "private": true,
-  "description": "Deterministic manifest acceptance harness for Agenty fixtures.",
+  "description": "Deterministic acceptance harness for Agents SDK contracts.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agents-sdk/agents-sdk.git",
+    "directory": "packages/harness"
+  },
+  "homepage": "https://agents-sdk.com",
+  "bugs": {
+    "url": "https://github.com/agents-sdk/agents-sdk/issues"
+  },
+  "engines": {
+    "node": ">=20.11.0"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -22,7 +35,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@agenty/core": "workspace:*"
+    "@agents-sdk/core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.15.0",

@@ -5,7 +5,9 @@
     "incremental": true,
     "plugins": [{ "name": "next" }],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@agents-sdk/ui": ["../../packages/ui/src/index.ts"],
+      "@agents-sdk/ui/*": ["../../packages/ui/src/*"]
     }
   },
   "include": [

@@ -1,4 +1,4 @@
-export const ARTIFACT_SCHEMA_VERSION = "agenty.artifact/v1" as const;
+export const ARTIFACT_SCHEMA_VERSION = "agents-sdk.artifact/v1" as const;
 
 export type ArtifactTaskStatus = "pending" | "running" | "done" | "failed";
 export type ArtifactAlertTone = "info" | "warning" | "error" | "success";
